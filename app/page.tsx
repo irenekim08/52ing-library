@@ -61,14 +61,6 @@ export default async function Home() {
             className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
           >
 
-            {book.cover && (
-              <img
-                src={book.cover}
-                alt={book.title}
-                className="w-full h-48 object-cover rounded-xl mb-3"
-              />
-            )}
-
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl mb-3">
                 <img
                   src={book.cover}
