@@ -69,6 +69,14 @@ export default async function Home() {
               />
             )}
 
+              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl mb-3">
+                <img
+                  src={book.cover}
+                  alt={book.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
             <h2 className="font-bold text-lg">
               {book.title}
             </h2>
