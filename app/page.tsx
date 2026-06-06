@@ -61,9 +61,13 @@ export default async function Home() {
             className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
           >
 
-            <div className="text-4xl mb-3">
-              📚
-            </div>
+            {book.cover && (
+              <img
+                src={book.cover}
+                alt={book.title}
+                className="w-full h-48 object-cover rounded-xl mb-3"
+              />
+            )}
 
             <h2 className="font-bold text-lg">
               {book.title}
