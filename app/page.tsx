@@ -46,7 +46,7 @@ export default async function Home() {
   const books = await getBooks();
 
   return (
-    <main className="min-h-screen bg-[#FFFDF8] p-8">
+    <main className="min-h-screen bg-[#FCF057] p-8">
       <div className="text-center mb-12">
         <div className="flex justify-center mb-5">
           <Image
