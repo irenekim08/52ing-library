@@ -1,3 +1,5 @@
+import BookBrowser from "./components/BookBrowser";
+
 import Image from "next/image";
 
 async function getBooks() {
@@ -19,6 +21,7 @@ async function getBooks() {
       id: values[0],
       title: values[1],
       author: values[2],
+      series: values[4],
       category: values[7],
       age: values[8],
       availability: values[10],
@@ -66,55 +69,12 @@ export default async function Home() {
       </div>
 
       <section>
-        <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
-          책 둘러보기
-        </h2>
+  <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
+    책 둘러보기
+  </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {books.map((book) => (
-            <div
-              key={book.id}
-              className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
-            >
-              {book.cover ? (
-              <img
-                src={book.cover}
-                alt={book.title}
-                className="w-full aspect-[2/3] object-cover rounded-2xl mb-4"
-              />
-            ) : (
-              <div className="w-full aspect-[2/3] flex items-center justify-center text-4xl mb-4">
-                📚
-              </div>
-            )}
-
-              <h2 className="font-bold text-lg">
-                {book.title}
-              </h2>
-
-              <p className="text-gray-600">
-                {book.author}
-              </p>
-
-              {book.category && (
-                <div className="mt-3">
-                  <span className="bg-[#5FE6D3] px-3 py-1 rounded-full text-sm">
-                    {book.category}
-                  </span>
-                </div>
-              )}
-
-              {book.age && (
-                <div className="mt-2">
-                  <span className="bg-[#FFD93D] px-3 py-1 rounded-full text-sm">
-                    {book.age}
-                  </span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+  <BookBrowser books={books} />
+</section>
     </main>
   );
 }
