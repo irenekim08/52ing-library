@@ -69,12 +69,12 @@ export default async function Home() {
       </div>
 
       <section>
-  <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
-    책 둘러보기
-  </h2>
+      <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
+        책 둘러보기
+      </h2>
 
-  <BookBrowser books={books} />
-</section>
+      <BookBrowser books={books} />
+    </section>
     </main>
-  );
+  )
 }
