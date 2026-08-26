@@ -16,6 +16,7 @@ type Book = {
 function BookCard({ book }: { book: Book }) {
   return (
     <div className="group relative bg-white rounded-[2rem] p-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+      
       {/* little orbit decoration */}
       <div className="absolute -top-2 -right-2 text-xl rotate-[-20deg]">
         ✦
@@ -75,9 +76,54 @@ function BookCard({ book }: { book: Book }) {
 export default function BookBrowser({ books }: { books: Book[] }) {
   const [selectedSeries, setSelectedSeries] = useState<string | null>(null);
 
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("전체");
+  const [selectedAge, setSelectedAge] = useState("전체");
+
   const seriesGroups: Record<string, Book[]> = {};
 
-  books.forEach((book) => {
+  const categories = [
+    "전체",
+    ...Array.from(
+        new Set(
+        books
+            .map((book) => book.category)
+            .filter(Boolean)
+        )
+    ),
+    ];
+
+    const ages = [
+    "전체",
+    ...Array.from(
+        new Set(
+        books
+            .map((book) => book.age)
+            .filter(Boolean)
+        )
+    ),
+    ];
+
+    const filteredBooks = books.filter((book) => {
+    const searchText = search.toLowerCase();
+
+    const matchesSearch =
+        book.title.toLowerCase().includes(searchText) ||
+        book.author.toLowerCase().includes(searchText) ||
+        book.series.toLowerCase().includes(searchText);
+
+    const matchesCategory =
+        selectedCategory === "전체" ||
+        book.category === selectedCategory;
+
+    const matchesAge =
+        selectedAge === "전체" ||
+        book.age === selectedAge;
+
+    return matchesSearch && matchesCategory && matchesAge;
+    });
+
+  filteredBooks.forEach((book) => {
     const seriesName = book.series?.trim();
 
     if (seriesName) {
@@ -89,7 +135,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
     }
   });
 
-  const individualBooks = books.filter(
+  const individualBooks = filteredBooks.filter(
     (book) => !book.series || book.series.trim() === ""
   );
 
@@ -102,6 +148,32 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
     return (
       <div className="relative">
+
+        {/* FLOATING SPACE OBJECTS */}
+        <div className="pointer-events-none absolute -top-8 left-[10%] text-xl twinkle">
+        ✦
+        </div>
+
+        <div className="pointer-events-none absolute top-20 right-[8%] text-2xl float-slow">
+        ✧
+        </div>
+
+        <div className="pointer-events-none absolute top-80 left-[4%] text-xl twinkle-slow">
+        ✦
+        </div>
+
+        <div className="pointer-events-none absolute top-[500px] right-[3%] text-3xl float-medium">
+        ☄️
+        </div>
+
+        <div className="pointer-events-none absolute top-[800px] left-[8%] text-xl twinkle">
+        ✧
+        </div>
+
+        {/* your existing floating space things */}
+        <div className="absolute -top-10 right-4 text-4xl opacity-50">
+        🪐
+        </div>
         {/* space decorations */}
         <div className="absolute top-0 right-4 text-3xl opacity-40">
           ✦
@@ -162,6 +234,124 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
   return (
     <div className="relative">
+
+        {/* 🚀 오잉 탐색 조종석 */}
+    <div className="relative mb-12 overflow-hidden rounded-[2rem] border-2 border-[#73D2DF] bg-white p-6 shadow-sm">
+
+    {/* decorative orbit */}
+    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full border-2 border-[#73D2DF]/30" />
+
+    <div className="pointer-events-none absolute right-8 top-4 text-xl float-slow">
+        ✦
+    </div>
+
+    <div className="relative flex items-center gap-3 mb-5">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FCF057] text-xl">
+        🚀
+        </div>
+
+        <div>
+        <h2 className="font-bold text-xl text-[#1F2A44]">
+            오잉 탐색 조종석
+        </h2>
+
+        <p className="text-sm text-gray-500">
+            찾고 싶은 책의 좌표를 입력하세요!
+        </p>
+        </div>
+    </div>
+
+    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        {/* 🔭 SEARCH */}
+        <div>
+        <label className="text-xs font-bold text-[#1F2A44]">
+            🔭 책 검색
+        </label>
+
+        <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="제목, 작가, 시리즈..."
+            className="
+            mt-2
+            w-full
+            rounded-2xl
+            border-2
+            border-[#73D2DF]/40
+            px-4
+            py-3
+            outline-none
+            focus:border-[#73D2DF]
+            "
+        />
+        </div>
+
+        {/* 🪐 CATEGORY */}
+        <div>
+        <label className="text-xs font-bold text-[#1F2A44]">
+            🪐 카테고리
+        </label>
+
+        <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="
+            mt-2
+            w-full
+            rounded-2xl
+            border-2
+            border-[#73D2DF]/40
+            bg-white
+            px-4
+            py-3
+            outline-none
+            "
+        >
+            {categories.map((category) => (
+            <option key={category} value={category}>
+                {category}
+            </option>
+            ))}
+        </select>
+        </div>
+
+        {/* 🌙 AGE */}
+        <div>
+        <label className="text-xs font-bold text-[#1F2A44]">
+            🌙 추천 연령
+        </label>
+
+        <select
+            value={selectedAge}
+            onChange={(e) => setSelectedAge(e.target.value)}
+            className="
+            mt-2
+            w-full
+            rounded-2xl
+            border-2
+            border-[#FCF057]/50
+            bg-white
+            px-4
+            py-3
+            outline-none
+            "
+        >
+            {ages.map((age) => (
+            <option key={age} value={age}>
+                {age}
+            </option>
+            ))}
+        </select>
+        </div>
+
+    </div>
+
+    <p className="relative mt-5 text-sm text-[#1F2A44]/60">
+        📡 현재 탐지된 책: {filteredBooks.length}권
+    </p>
+    </div>
+
       {/* floating space things */}
       <div className="absolute -top-10 right-4 text-4xl opacity-50">
         🪐
