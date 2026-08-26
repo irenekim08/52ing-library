@@ -76,9 +76,17 @@ export default async function Home() {
               key={book.id}
               className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
             >
-              <div className="text-4xl mb-3">
+              {book.cover ? (
+              <img
+                src={book.cover}
+                alt={book.title}
+                className="w-full h-64 object-cover rounded-2xl mb-4"
+              />
+            ) : (
+              <div className="h-64 flex items-center justify-center text-4xl mb-4">
                 📚
               </div>
+            )}
 
               <h2 className="font-bold text-lg">
                 {book.title}
