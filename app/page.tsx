@@ -39,8 +39,8 @@ export default async function Home() {
         {/* 오잉 마스코트 */}
         <div className="flex justify-center mb-5">
           <Image
-            src="/52ing.png"
-            alt="오잉"
+            src="/52ing.PNG"
+            alt="운석 오잉이"
             width={140}
             height={140}
             className="object-contain"
