@@ -39,7 +39,7 @@ export default async function Home() {
         {/* 오잉 마스코트 */}
         <div className="flex justify-center mb-5">
           <Image
-            src="/oing.png"
+            src="/52ing.png"
             alt="오잉"
             width={140}
             height={140}
@@ -80,10 +80,10 @@ export default async function Home() {
               <img
                 src={book.cover}
                 alt={book.title}
-                className="w-full h-64 object-cover rounded-2xl mb-4"
+                className="w-full aspect-[2/3] object-cover rounded-2xl mb-4"
               />
             ) : (
-              <div className="h-64 flex items-center justify-center text-4xl mb-4">
+              <div className="w-full aspect-[2/3] flex items-center justify-center text-4xl mb-4">
                 📚
               </div>
             )}
