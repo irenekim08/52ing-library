@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 async function getBooks() {
   const response = await fetch(
     process.env.NEXT_PUBLIC_BOOKS_CSV_URL!,
@@ -32,72 +34,79 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#FFFDF8] p-8">
-
       <div className="text-center mb-12">
-
-        <div className="text-6xl mb-4">
-          ☄️
+        
+        {/* 오잉 마스코트 */}
+        <div className="flex justify-center mb-5">
+          <Image
+            src="/oing.png"
+            alt="오잉"
+            width={140}
+            height={140}
+            className="object-contain"
+            priority
+          />
         </div>
 
         <h1 className="text-5xl font-bold text-[#1F2A44]">
-          52ing Library
+          오잉 도서관
         </h1>
 
         <p className="mt-4 text-gray-600">
-          Stories waiting to find their orbit.
+          우리들의 운석의 새로운 궤도를 찾아서!
         </p>
 
         <p className="mt-2 text-gray-500">
-          {books.length} books currently in orbit
+          어린이와 청소년을 위한 한국어 책 도서관
         </p>
 
+        <p className="mt-3 text-gray-500">
+          지금 {books.length}권의 책이 오잉 도서관에 있어요 ☄️
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section>
+        <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
+          책 둘러보기
+        </h2>
 
-        {books.map((book) => (
-          <div
-            key={book.id}
-            className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
-          >
-
-              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl mb-3">
-                <img
-                  src={book.cover}
-                  alt={book.title}
-                  className="w-full h-full object-cover"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {books.map((book) => (
+            <div
+              key={book.id}
+              className="bg-white rounded-3xl p-5 shadow hover:shadow-lg transition"
+            >
+              <div className="text-4xl mb-3">
+                📚
               </div>
 
-            <h2 className="font-bold text-lg">
-              {book.title}
-            </h2>
+              <h2 className="font-bold text-lg">
+                {book.title}
+              </h2>
 
-            <p className="text-gray-600">
-              {book.author}
-            </p>
+              <p className="text-gray-600">
+                {book.author}
+              </p>
 
-            {book.category && (
-              <div className="mt-3">
-                <span className="bg-[#5FE6D3] px-3 py-1 rounded-full text-sm">
-                  {book.category}
-                </span>
-              </div>
-            )}
+              {book.category && (
+                <div className="mt-3">
+                  <span className="bg-[#5FE6D3] px-3 py-1 rounded-full text-sm">
+                    {book.category}
+                  </span>
+                </div>
+              )}
 
-            {book.age && (
-              <div className="mt-2">
-                <span className="bg-[#FFD93D] px-3 py-1 rounded-full text-sm">
-                  {book.age}
-                </span>
-              </div>
-            )}
-
-          </div>
-        ))}
-
-      </div>
-
+              {book.age && (
+                <div className="mt-2">
+                  <span className="bg-[#FFD93D] px-3 py-1 rounded-full text-sm">
+                    {book.age}
+                  </span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
