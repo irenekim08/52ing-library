@@ -1,6 +1,17 @@
 import BookBrowser from "./components/BookBrowser";
-
 import Image from "next/image";
+import Papa from "papaparse";
+
+type SheetBook = {
+  ID?: string;
+  제목?: string;
+  글쓴이?: string;
+  시리즈?: string;
+  카테고리?: string;
+  연령?: string;
+  Availability?: string;
+  표지?: string;
+};
 
 async function getBooks() {
   const response = await fetch(
@@ -12,24 +23,23 @@ async function getBooks() {
 
   const csv = await response.text();
 
-  const lines = csv.split("\n");
-
-  const books = lines.slice(1).map((line) => {
-    const values = line.split(",");
-
-    return {
-      id: values[0],
-      title: values[1],
-      author: values[2],
-      series: values[4],
-      category: values[7],
-      age: values[8],
-      availability: values[10],
-      cover: values[12],
-    };
+  const parsed = Papa.parse<SheetBook>(csv, {
+    header: true,
+    skipEmptyLines: true,
   });
 
-  return books.filter((book) => book.title);
+  return parsed.data
+    .map((book) => ({
+      id: book.ID?.trim() || "",
+      title: book.제목?.trim() || "",
+      author: book.글쓴이?.trim() || "",
+      series: book.시리즈?.trim() || "",
+      category: book.카테고리?.trim() || "",
+      age: book.연령?.trim() || "",
+      availability: book.Availability?.trim() || "",
+      cover: book.표지?.trim() || "",
+    }))
+    .filter((book) => book.title);
 }
 
 export default async function Home() {
@@ -38,8 +48,6 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-[#FFFDF8] p-8">
       <div className="text-center mb-12">
-        
-        {/* 오잉 마스코트 */}
         <div className="flex justify-center mb-5">
           <Image
             src="/52ing.PNG"
@@ -69,12 +77,12 @@ export default async function Home() {
       </div>
 
       <section>
-      <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
-        책 둘러보기
-      </h2>
+        <h2 className="text-3xl font-bold text-[#1F2A44] mb-8">
+          책 둘러보기
+        </h2>
 
-      <BookBrowser books={books} />
-    </section>
+        <BookBrowser books={books} />
+      </section>
     </main>
-  )
+  );
 }
