@@ -59,17 +59,19 @@ function BookCard({ book }: { book: Book }) {
           <img
             src={book.cover}
             alt={book.title}
+            loading="lazy"
+            decoding="async"
             className="
-              w-28
-              sm:w-32
-              aspect-[2/3]
-              object-cover
-              rounded-xl
-              shadow-md
-              group-hover:rotate-1
-              transition
+                w-28
+                sm:w-32
+                aspect-[2/3]
+                object-cover
+                rounded-xl
+                shadow-md
+                group-hover:rotate-1
+                transition
             "
-          />
+            />
         ) : (
           <div className="w-28 sm:w-32 aspect-[2/3] flex items-center justify-center text-3xl bg-[#FFFDF8] rounded-xl">
             📚
