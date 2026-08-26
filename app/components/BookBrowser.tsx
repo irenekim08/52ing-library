@@ -15,8 +15,39 @@ type Book = {
 
 function BookCard({ book }: { book: Book }) {
   return (
-    <div className="group relative bg-white rounded-[2rem] p-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-      
+    <div className="group relative bg-[#DDF7F8] rounded-[2rem] p-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+
+    {/* 대여 상태 */}
+    {book.availability && (
+    <div
+        className={`absolute top-3 left-3 z-10 rounded-full px-3 py-1 text-xs font-bold shadow-sm ${
+        book.availability.trim() === "Available"
+            ? "bg-[#73D2DF] text-[#1F2A44]"
+            : book.availability.trim() === "Borrowed"
+            ? "bg-[#FCF057] text-[#1F2A44]"
+            : book.availability.trim() === "Overdue"
+            ? "bg-[#FF8A8A] text-[#1F2A44]"
+            : book.availability.trim() === "In repair"
+            ? "bg-[#D9D9D9] text-[#1F2A44]"
+            : book.availability.trim() === "Fragile / In library only"
+            ? "bg-[#C9B6FF] text-[#1F2A44]"
+            : "bg-gray-200 text-gray-600"
+        }`}
+    >
+        {book.availability.trim() === "Available"
+        ? "● 대여 가능"
+        : book.availability.trim() === "Borrowed"
+        ? "● 대여 중"
+        : book.availability.trim() === "Overdue"
+        ? "● 반납 지연"
+        : book.availability.trim() === "In repair"
+        ? "🔧 수리 중"
+        : book.availability.trim() === "Fragile / In library only"
+        ? "📚 관내 열람"
+        : book.availability}
+    </div>
+    )}
+
       {/* little orbit decoration */}
       <div className="absolute -top-2 -right-2 text-xl rotate-[-20deg]">
         ✦
