@@ -420,7 +420,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     group
                     relative
                     text-left
-                    bg-[#73D2DF]/25
+                    bg-[#DDF7F8]/25
                     rounded-[2rem]
                     p-4
                     hover:bg-[#73D2DF]/40
