@@ -60,7 +60,6 @@ function BookCard({ book }: { book: Book }) {
             src={book.cover}
             alt={book.title}
             loading="lazy"
-            decoding="async"
             className="
                 w-28
                 sm:w-32
@@ -112,6 +111,8 @@ export default function BookBrowser({ books }: { books: Book[] }) {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [selectedAge, setSelectedAge] = useState("전체");
+
+  const [visibleBooks, setVisibleBooks] = useState(30);
 
   const seriesGroups: Record<string, Book[]> = {};
 
@@ -496,10 +497,47 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5">
-        {individualBooks.map((book) => (
-          <BookCard key={book.id} book={book} />
+        {individualBooks.slice(0, visibleBooks).map((book) => (
+            <BookCard key={book.id} book={book} />
         ))}
-      </div>
+        </div>
+
+      {visibleBooks < individualBooks.length && (
+        <div className="flex flex-col items-center mt-10">
+            <button
+            onClick={() => setVisibleBooks((prev) => prev + 30)}
+            className="
+                group
+                relative
+                overflow-hidden
+                rounded-full
+                bg-[#FCF057]
+                px-8
+                py-4
+                font-bold
+                text-[#1F2A44]
+                shadow-md
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-lg
+                active:translate-y-0
+            "
+            >
+            <span className="relative z-10">
+                🚀 더 많은 책 탐험하기
+            </span>
+
+            <span className="absolute -right-2 -top-3 text-lg opacity-40 transition-transform duration-500 group-hover:rotate-45">
+                ✦
+            </span>
+            </button>
+
+            <p className="mt-3 text-sm text-[#1F2A44]/60">
+            {Math.min(visibleBooks, individualBooks.length)} / {individualBooks.length}권 탐험 중
+            </p>
+        </div>
+        )}
     </div>
   );
 }
