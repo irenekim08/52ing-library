@@ -1,18 +1,8 @@
 @import "tailwindcss";
 
-/* =====================================================
-   BASE
-===================================================== */
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
-  --space: #10192e;
-  --space-deep: #0b1222;
-
-  --mint: #73d2df;
-  --yellow: #fcf057;
 }
 
 * {
@@ -23,24 +13,17 @@ html,
 body {
   margin: 0;
   padding: 0;
-
-  width: 100%;
   min-height: 100%;
-
-  background: var(--background);
-  color: var(--foreground);
 }
 
 body {
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
 /* =====================================================
-   OING LIBRARY — DREAMY CINEMATIC INTRO
+   OING LIBRARY INTRO
 ===================================================== */
 
 .intro {
@@ -48,20 +31,16 @@ body {
   inset: 0;
 
   width: 100vw;
-  height: 100vh;
-  height: 100svh;
+  height: 100dvh;
 
   overflow: hidden;
 
-  z-index: 9999;
-
-  background: var(--space);
-
+  background: #10192e;
   color: white;
 
   isolation: isolate;
+  z-index: 9999;
 }
-
 
 /* =====================================================
    BACKGROUND
@@ -76,145 +55,97 @@ body {
   background:
     radial-gradient(
       circle at 50% 45%,
-      rgba(41, 67, 108, 0.72),
-      transparent 38%
+      rgba(38, 65, 105, 0.8),
+      transparent 45%
     ),
     radial-gradient(
-      circle at 15% 80%,
+      circle at 10% 80%,
       rgba(115, 210, 223, 0.16),
-      transparent 34%
+      transparent 35%
     ),
     radial-gradient(
-      circle at 85% 18%,
+      circle at 90% 10%,
       rgba(252, 240, 87, 0.12),
       transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      #111a30 0%,
-      #10192e 45%,
-      #0b1222 100%
-    );
+    #10192e;
 }
-
-
-/* =====================================================
-   NEBULAS
-===================================================== */
 
 .intro-nebula {
   position: absolute;
-
-  object-fit: contain;
-
   pointer-events: none;
-
-  user-select: none;
+  object-fit: contain;
+  z-index: -15;
 }
-
 
 .intro-nebula-main {
-  z-index: -15;
-
-  width: 115vw;
+  width: 110vw;
   height: auto;
 
-  left: -8vw;
-  top: -12vh;
+  left: -5vw;
+  top: -10vh;
 
-  opacity: 0.32;
+  opacity: 0.38;
 
-  animation:
-    nebulaDrift 26s ease-in-out infinite alternate;
+  animation: nebulaDrift 24s ease-in-out infinite alternate;
 }
 
-
 .intro-nebula-mint {
-  z-index: -14;
-
   width: 75vw;
   height: auto;
 
-  left: -22vw;
-  bottom: -30vh;
+  left: -20vw;
+  bottom: -25vh;
 
-  opacity: 0.16;
+  opacity: 0.2;
 
-  animation:
-    nebulaFloatMint 30s ease-in-out infinite alternate;
+  animation: nebulaMint 28s ease-in-out infinite alternate;
 }
 
-
 .intro-nebula-yellow {
-  z-index: -14;
-
   width: 65vw;
   height: auto;
 
-  right: -22vw;
-  top: -18vh;
+  right: -20vw;
+  top: -15vh;
 
-  opacity: 0.13;
+  opacity: 0.14;
 
-  animation:
-    nebulaFloatYellow 32s ease-in-out infinite alternate;
+  animation: nebulaYellow 30s ease-in-out infinite alternate;
 }
-
 
 @keyframes nebulaDrift {
   from {
-    transform:
-      translate(0, 0)
-      scale(1);
+    transform: translate(0, 0) scale(1);
   }
 
   to {
-    transform:
-      translate(5vw, 3vh)
-      scale(1.08);
+    transform: translate(5vw, 3vh) scale(1.08);
   }
 }
 
-
-@keyframes nebulaFloatMint {
+@keyframes nebulaMint {
   from {
-    transform:
-      translate(0, 0)
-      rotate(-5deg);
+    transform: translate(0, 0) rotate(-5deg);
   }
 
   to {
-    transform:
-      translate(9vw, -4vh)
-      rotate(4deg);
+    transform: translate(8vw, -5vh) rotate(4deg);
   }
 }
 
-
-@keyframes nebulaFloatYellow {
+@keyframes nebulaYellow {
   from {
-    transform:
-      translate(0, 0)
-      rotate(4deg);
+    transform: translate(0, 0) rotate(4deg);
   }
 
   to {
-    transform:
-      translate(-8vw, 6vh)
-      rotate(-4deg);
+    transform: translate(-7vw, 5vh) rotate(-4deg);
   }
 }
-
-
-/* =====================================================
-   STARDUST + SPARKLES
-===================================================== */
 
 .intro-stardust {
   position: absolute;
-
-  z-index: -12;
-
   inset: -10%;
 
   width: 120%;
@@ -222,52 +153,43 @@ body {
 
   object-fit: cover;
 
-  opacity: 0.42;
-
+  opacity: 0.45;
   pointer-events: none;
 
-  animation:
-    stardustDrift 40s linear infinite alternate;
-}
+  z-index: -12;
 
+  animation: stardustDrift 35s linear infinite;
+}
 
 @keyframes stardustDrift {
   from {
-    transform:
-      translate(0, 0)
-      scale(1);
+    transform: translate(0, 0);
   }
 
   to {
-    transform:
-      translate(-4vw, 3vh)
-      scale(1.04);
+    transform: translate(-4vw, 3vh);
   }
 }
-
 
 .intro-sparkles {
   position: absolute;
 
-  z-index: -10;
-
   width: 110vw;
   height: auto;
 
+  opacity: 0.4;
+
   pointer-events: none;
 
-  opacity: 0.3;
+  z-index: -10;
 
-  animation:
-    sparklePulse 7s ease-in-out infinite;
+  animation: sparklePulse 6s ease-in-out infinite;
 }
-
 
 .intro-sparkles-one {
-  left: -5vw;
+  left: -10vw;
   top: -10vh;
 }
-
 
 .intro-sparkles-two {
   right: -25vw;
@@ -275,30 +197,22 @@ body {
 
   transform: rotate(180deg);
 
-  animation-delay: -3.5s;
+  animation-delay: -3s;
 }
-
 
 @keyframes sparklePulse {
   0%,
   100% {
-    opacity: 0.18;
+    opacity: 0.2;
   }
 
   50% {
-    opacity: 0.6;
+    opacity: 0.65;
   }
 }
 
-
-/* =====================================================
-   ASTEROIDS
-===================================================== */
-
 .intro-asteroids {
   position: absolute;
-
-  z-index: -8;
 
   width: min(35vw, 450px);
   height: auto;
@@ -306,96 +220,77 @@ body {
   left: -8vw;
   bottom: -12vh;
 
-  opacity: 0.16;
+  opacity: 0.2;
 
   pointer-events: none;
 
-  animation:
-    asteroidFloat 20s ease-in-out infinite alternate;
-}
+  z-index: -5;
 
+  animation: asteroidFloat 18s ease-in-out infinite alternate;
+}
 
 @keyframes asteroidFloat {
   from {
-    transform:
-      rotate(-8deg)
-      translateY(0);
+    transform: rotate(-8deg) translateY(0);
   }
 
   to {
-    transform:
-      rotate(6deg)
-      translateY(-4vh);
+    transform: rotate(6deg) translateY(-4vh);
   }
 }
 
-
 /* =====================================================
-   GENERAL SCENES
+   SCENE SYSTEM
 ===================================================== */
 
 .intro-scene {
   position: absolute;
   inset: 0;
 
-  z-index: 5;
+  opacity: 0;
 
   pointer-events: none;
 
-  opacity: 0;
-
-  transform:
-    scale(0.985);
+  z-index: 5;
 
   transition:
-    opacity 1.6s cubic-bezier(.22, 1, .36, 1),
-    transform 2s cubic-bezier(.22, 1, .36, 1);
-
-  will-change:
-    opacity,
-    transform;
+    opacity 1.5s ease,
+    transform 1.5s ease;
 }
-
 
 .intro-scene.scene-active {
   opacity: 1;
-
-  transform:
-    scale(1);
 }
-
 
 .intro-scene.scene-leaving {
   opacity: 0;
 
-  transform:
-    scale(1.045);
-
-  transition:
-    opacity 1.5s ease-in,
-    transform 2.2s ease-in;
+  transform: scale(1.03);
 }
 
-
 /* =====================================================
-   GENERAL CHARACTER
+   GENERAL IMAGES
 ===================================================== */
 
 .intro-oing {
   position: absolute;
 
-  object-fit: contain;
-
   height: auto;
 
-  user-select: none;
+  object-fit: contain;
 
-  pointer-events: none;
+  user-select: none;
 }
 
+.intro-book {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
 
 /* =====================================================
-   SCENE 1 — LOST IN SPACE
+   SCENE 1 — LOST
 ===================================================== */
 
 .lost-oing-wrap {
@@ -404,36 +299,33 @@ body {
   width: min(34vw, 420px);
 
   left: 12vw;
-  top: 34vh;
+  top: 30vh;
 
-  animation:
-    lostEnter 2.8s cubic-bezier(.22, 1, .36, 1) forwards,
-    lostFloat 5s ease-in-out 2.8s infinite;
+  opacity: 0;
 }
 
+.scene-lost.scene-active .lost-oing-wrap {
+  animation:
+    lostEnter 2.2s cubic-bezier(.22, 1, .36, 1) forwards,
+    lostFloat 5s ease-in-out 2.2s infinite;
+}
 
 .lost-oing {
   position: relative;
 
   width: 100%;
   height: auto;
-
-  filter:
-    drop-shadow(
-      0 20px 35px rgba(0, 0, 0, 0.22)
-    );
 }
-
 
 @keyframes lostEnter {
   from {
     opacity: 0;
 
     transform:
-      translateX(-50vw)
-      translateY(-7vh)
+      translateX(-45vw)
+      translateY(-5vh)
       rotate(-18deg)
-      scale(0.72);
+      scale(0.75);
   }
 
   to {
@@ -447,49 +339,45 @@ body {
   }
 }
 
-
 @keyframes lostFloat {
   0%,
   100% {
-    transform:
-      translateY(-10px)
-      rotate(-3deg);
+    transform: translateY(-10px) rotate(-3deg);
   }
 
   50% {
-    transform:
-      translateY(18px)
-      rotate(4deg);
+    transform: translateY(16px) rotate(4deg);
   }
 }
-
 
 /* =====================================================
    SCENE 2 — FIRST STORY
 ===================================================== */
 
-.scene-first-story {
-  z-index: 6;
-}
-
-
-.first-oing-side {
+.first-oing-side,
+.first-oing-curious {
   width: min(38vw, 430px);
 
   left: 14vw;
   top: 27vh;
 
-  animation:
-    firstOingSide 2s ease forwards;
+  opacity: 0;
 }
 
+.scene-first-story.scene-active .first-oing-side {
+  animation: firstOingSide 1.5s ease forwards;
+}
+
+.scene-first-story.scene-active .first-oing-curious {
+  animation: curiousAppear 1s ease 1.5s forwards;
+}
 
 @keyframes firstOingSide {
   from {
     opacity: 0;
 
     transform:
-      translateX(-6vw)
+      translateX(-5vw)
       rotate(-8deg);
   }
 
@@ -502,29 +390,13 @@ body {
   }
 }
 
-
-.first-oing-curious {
-  width: min(38vw, 430px);
-
-  left: 14vw;
-  top: 27vh;
-
-  opacity: 0;
-
-  animation:
-    curiousAppear 0.9s ease forwards;
-
-  animation-delay: 1.35s;
-}
-
-
 @keyframes curiousAppear {
   from {
     opacity: 0;
 
     transform:
-      translateX(-18px)
-      scale(0.96);
+      translateX(-15px)
+      scale(0.95);
   }
 
   to {
@@ -536,7 +408,6 @@ body {
   }
 }
 
-
 .first-book-glow {
   position: absolute;
 
@@ -546,49 +417,41 @@ body {
   top: 25vh;
 
   opacity: 0;
-
-  animation:
-    discoveryGlow 2.5s ease forwards,
-    glowBreath 3.5s ease-in-out 2.5s infinite;
 }
 
+.scene-first-story.scene-active .first-book-glow {
+  animation:
+    discoveryGlow 2.2s ease forwards,
+    glowBreath 3s ease-in-out 2.2s infinite;
+}
 
 .book-glow {
   width: 100%;
   height: auto;
 }
 
-
 @keyframes discoveryGlow {
   from {
     opacity: 0;
-
-    transform:
-      scale(0.35);
+    transform: scale(0.3);
   }
 
   to {
-    opacity: 0.85;
-
-    transform:
-      scale(1);
+    opacity: 0.8;
+    transform: scale(1);
   }
 }
-
 
 @keyframes glowBreath {
   0%,
   100% {
-    transform:
-      scale(1);
+    transform: scale(1);
   }
 
   50% {
-    transform:
-      scale(1.12);
+    transform: scale(1.1);
   }
 }
-
 
 .first-book-wrap {
   position: absolute;
@@ -598,21 +461,17 @@ body {
   right: 21vw;
   top: 32vh;
 
-  animation:
-    firstBookFly 2.7s cubic-bezier(.16, 1, .3, 1) forwards;
+  opacity: 0;
 }
 
+.scene-first-story.scene-active .first-book-wrap {
+  animation: firstBookFly 2.5s cubic-bezier(.16, 1, .3, 1) forwards;
+}
 
 .first-book {
-  width: 100%;
-  height: auto;
-
   filter:
-    drop-shadow(
-      0 0 24px rgba(252, 240, 87, 0.72)
-    );
+    drop-shadow(0 0 20px rgba(252, 240, 87, 0.7));
 }
-
 
 @keyframes firstBookFly {
   from {
@@ -621,7 +480,7 @@ body {
     transform:
       translate(45vw, -20vh)
       rotate(50deg)
-      scale(0.45);
+      scale(0.5);
   }
 
   to {
@@ -634,15 +493,9 @@ body {
   }
 }
 
-
 /* =====================================================
-   SCENE 3 — STORIES ARRIVE
+   SCENE 3 — STORIES
 ===================================================== */
-
-.scene-stories {
-  z-index: 7;
-}
-
 
 .surprised-oing,
 .excited-oing,
@@ -652,42 +505,26 @@ body {
   left: 50%;
   top: 42%;
 
-  transform:
-    translate(-50%, -50%);
-}
-
-
-.surprised-oing {
-  animation:
-    surprisedMoment 1.35s ease forwards;
-}
-
-
-.excited-oing {
   opacity: 0;
 
-  animation:
-    excitedAppear 0.9s ease forwards,
-    excitedFloat 2.8s ease-in-out 1.8s infinite;
-
-  animation-delay:
-    1.05s,
-    1.95s;
+  transform: translate(-50%, -50%);
 }
 
-
-.happy-oing {
-  opacity: 0;
-
-  animation:
-    happyAppear 0.9s ease forwards,
-    happyFloat 3s ease-in-out 3.5s infinite;
-
-  animation-delay:
-    2.8s,
-    3.7s;
+.scene-stories.scene-active .surprised-oing {
+  animation: surprisedMoment 1.4s ease forwards;
 }
 
+.scene-stories.scene-active .excited-oing {
+  animation:
+    excitedAppear 1s ease 1.1s forwards,
+    excitedFloat 2.8s ease-in-out 2.1s infinite;
+}
+
+.scene-stories.scene-active .happy-oing {
+  animation:
+    happyAppear 1s ease 2.8s forwards,
+    happyFloat 3s ease-in-out 3.8s infinite;
+}
 
 @keyframes surprisedMoment {
   from {
@@ -695,10 +532,10 @@ body {
 
     transform:
       translate(-50%, -40%)
-      scale(0.72);
+      scale(0.7);
   }
 
-  35% {
+  40% {
     opacity: 1;
 
     transform:
@@ -706,23 +543,14 @@ body {
       scale(1.08);
   }
 
-  75% {
-    opacity: 1;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-  }
-
   to {
     opacity: 0;
 
     transform:
       translate(-50%, -50%)
-      scale(0.98);
+      scale(1);
   }
 }
-
 
 @keyframes excitedAppear {
   from {
@@ -731,7 +559,7 @@ body {
     transform:
       translate(-50%, -40%)
       rotate(-8deg)
-      scale(0.82);
+      scale(0.8);
   }
 
   to {
@@ -744,14 +572,13 @@ body {
   }
 }
 
-
 @keyframes happyAppear {
   from {
     opacity: 0;
 
     transform:
       translate(-50%, -40%)
-      scale(0.86);
+      scale(0.85);
   }
 
   to {
@@ -762,7 +589,6 @@ body {
       scale(1);
   }
 }
-
 
 @keyframes excitedFloat {
   0%,
@@ -774,14 +600,10 @@ body {
 
   50% {
     transform:
-      translate(
-        -50%,
-        calc(-50% - 20px)
-      )
+      translate(-50%, calc(-50% - 20px))
       rotate(3deg);
   }
 }
-
 
 @keyframes happyFloat {
   0%,
@@ -793,18 +615,12 @@ body {
 
   50% {
     transform:
-      translate(
-        -50%,
-        calc(-50% - 14px)
-      )
+      translate(-50%, calc(-50% - 14px))
       rotate(3deg);
   }
 }
 
-
-/* =====================================================
-   STORY BOOKS
-===================================================== */
+/* BOOKS */
 
 .story-book {
   position: absolute;
@@ -814,225 +630,163 @@ body {
   opacity: 0;
 
   filter:
-    drop-shadow(
-      0 12px 22px rgba(0, 0, 0, 0.22)
-    );
+    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
 }
-
 
 .story-book img {
   width: 100%;
   height: auto;
 }
 
-
 .story-book-yellow {
   left: 8vw;
   top: 18vh;
-
-  animation:
-    storyBookYellow 4.5s ease-in-out infinite;
 }
-
 
 .story-book-mint {
   right: 9vw;
   top: 20vh;
-
-  animation:
-    storyBookMint 5s ease-in-out infinite;
 }
-
 
 .story-book-blue {
   left: 13vw;
   bottom: 18vh;
-
-  animation:
-    storyBookBlue 5.5s ease-in-out infinite;
 }
-
 
 .story-book-open-yellow {
   right: 13vw;
   bottom: 15vh;
-
-  animation:
-    storyBookOpenYellow 5s ease-in-out infinite;
 }
-
 
 .story-book-open-mint {
   left: 30vw;
   top: 10vh;
-
-  animation:
-    storyBookOpenMint 6s ease-in-out infinite;
 }
-
 
 .story-book-open-blue {
   right: 31vw;
   bottom: 10vh;
-
-  animation:
-    storyBookOpenBlue 5.2s ease-in-out infinite;
 }
 
+.scene-stories.scene-active .story-book-yellow {
+  animation: storyBookYellow 4.5s ease-in-out forwards;
+}
+
+.scene-stories.scene-active .story-book-mint {
+  animation: storyBookMint 4.8s ease-in-out 0.3s forwards;
+}
+
+.scene-stories.scene-active .story-book-blue {
+  animation: storyBookBlue 5s ease-in-out 0.5s forwards;
+}
+
+.scene-stories.scene-active .story-book-open-yellow {
+  animation: storyBookOpenYellow 5s ease-in-out 0.7s forwards;
+}
+
+.scene-stories.scene-active .story-book-open-mint {
+  animation: storyBookOpenMint 5.5s ease-in-out 0.4s forwards;
+}
+
+.scene-stories.scene-active .story-book-open-blue {
+  animation: storyBookOpenBlue 5.2s ease-in-out 0.6s forwards;
+}
 
 @keyframes storyBookYellow {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translate(-30vw, -15vh)
-      rotate(-40deg);
+    transform: translate(-30vw, -15vh) rotate(-40deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  55% {
-    transform:
-      translate(4vw, 3vh)
-      rotate(10deg);
-  }
-
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translate(7vw, 8vh)
-      rotate(30deg);
+    transform: translate(7vw, 8vh) rotate(30deg);
   }
 }
-
 
 @keyframes storyBookMint {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translate(30vw, -20vh)
-      rotate(50deg);
+    transform: translate(30vw, -20vh) rotate(50deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  55% {
-    transform:
-      translate(-4vw, 5vh)
-      rotate(-15deg);
-  }
-
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translate(-8vw, 9vh)
-      rotate(-35deg);
+    transform: translate(-8vw, 9vh) rotate(-35deg);
   }
 }
-
 
 @keyframes storyBookBlue {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translate(-25vw, 30vh)
-      rotate(45deg);
+    transform: translate(-25vw, 30vh) rotate(45deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translate(8vw, -8vh)
-      rotate(180deg);
+    transform: translate(8vw, -8vh) rotate(180deg);
   }
 }
-
 
 @keyframes storyBookOpenYellow {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translate(35vw, 25vh)
-      rotate(-45deg);
+    transform: translate(35vw, 25vh) rotate(-45deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translate(-10vw, -12vh)
-      rotate(-150deg);
+    transform: translate(-10vw, -12vh) rotate(-150deg);
   }
 }
-
 
 @keyframes storyBookOpenMint {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translateY(-25vh)
-      rotate(60deg);
+    transform: translateY(-25vh) rotate(60deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translateY(8vh)
-      rotate(180deg);
+    transform: translateY(8vh) rotate(180deg);
   }
 }
-
 
 @keyframes storyBookOpenBlue {
-  0% {
+  from {
     opacity: 0;
-
-    transform:
-      translateY(25vh)
-      rotate(-60deg);
+    transform: translateY(25vh) rotate(-60deg);
   }
 
-  18% {
+  25% {
     opacity: 1;
   }
 
-  100% {
+  to {
     opacity: 1;
-
-    transform:
-      translateY(-12vh)
-      rotate(-170deg);
+    transform: translateY(-12vh) rotate(-170deg);
   }
 }
-
-
-/* =====================================================
-   EMPHASIS MARKS
-===================================================== */
 
 .emphasis-marks {
   position: absolute;
@@ -1043,49 +797,36 @@ body {
   top: 25vh;
 
   opacity: 0;
-
-  animation:
-    emphasisPop 0.65s ease forwards,
-    emphasisPulse 2s ease-in-out 1.9s infinite;
-
-  animation-delay:
-    1.2s,
-    1.85s;
 }
 
+.scene-stories.scene-active .emphasis-marks {
+  animation:
+    emphasisPop 0.7s ease 1.5s forwards,
+    emphasisPulse 2s ease-in-out 2.2s infinite;
+}
 
 @keyframes emphasisPop {
   from {
     opacity: 0;
-
-    transform:
-      scale(0.4)
-      rotate(-20deg);
+    transform: scale(0.4) rotate(-20deg);
   }
 
   to {
     opacity: 1;
-
-    transform:
-      scale(1)
-      rotate(0deg);
+    transform: scale(1) rotate(0deg);
   }
 }
-
 
 @keyframes emphasisPulse {
   0%,
   100% {
-    transform:
-      scale(1);
+    transform: scale(1);
   }
 
   50% {
-    transform:
-      scale(1.1);
+    transform: scale(1.1);
   }
 }
-
 
 /* =====================================================
    SCENE 4 — ORBIT
@@ -1095,6 +836,13 @@ body {
   z-index: 10;
 }
 
+.orbit-rings,
+.orbit-glow-orbs,
+.orbit-trail,
+.orbit-oing-back,
+.orbit-book {
+  opacity: 0;
+}
 
 .orbit-rings {
   position: absolute;
@@ -1105,28 +853,17 @@ body {
   left: 50%;
   top: 45%;
 
-  opacity: 0;
-
   transform:
     translate(-50%, -50%)
-    scale(0.72)
-    rotate(-15deg);
-
-  animation:
-    orbitReveal 3.5s ease forwards;
+    scale(0.7)
+    rotate(-20deg);
 }
 
+.scene-orbit.scene-active .orbit-rings {
+  animation: orbitReveal 3s ease forwards;
+}
 
 @keyframes orbitReveal {
-  from {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      scale(0.72)
-      rotate(-20deg);
-  }
-
   to {
     opacity: 0.75;
 
@@ -1137,7 +874,6 @@ body {
   }
 }
 
-
 .orbit-glow-orbs {
   position: absolute;
 
@@ -1146,23 +882,20 @@ body {
   left: 50%;
   top: 45%;
 
-  opacity: 0;
+  transform: translate(-50%, -50%);
+}
 
-  transform:
-    translate(-50%, -50%);
-
+.scene-orbit.scene-active .orbit-glow-orbs {
   animation:
     orbitGlowAppear 2.5s ease forwards,
     orbitGlowPulse 4s ease-in-out 2.5s infinite;
 }
-
 
 @keyframes orbitGlowAppear {
   to {
     opacity: 0.65;
   }
 }
-
 
 @keyframes orbitGlowPulse {
   0%,
@@ -1171,68 +904,42 @@ body {
   }
 
   50% {
-    opacity: 0.82;
+    opacity: 0.85;
   }
 }
-
 
 .orbit-trail {
   position: absolute;
 
   left: 50%;
   top: 45%;
-
-  opacity: 0;
-
-  pointer-events: none;
 }
-
 
 .orbit-trail-one {
   width: min(95vw, 1000px);
-
-  animation:
-    trailRevealOne 3.5s ease forwards,
-    trailFloatOne 7s ease-in-out 3.5s infinite;
 }
-
 
 .orbit-trail-two {
   width: min(70vw, 700px);
-
-  animation:
-    trailRevealTwo 3.5s ease forwards,
-    trailFloatTwo 6s ease-in-out 4.2s infinite;
-
-  animation-delay:
-    0.6s,
-    4.1s;
 }
-
 
 .orbit-trail-three {
   width: min(70vw, 700px);
-
-  animation:
-    trailRevealThree 3.5s ease forwards,
-    trailFloatThree 7s ease-in-out 4.8s infinite;
-
-  animation-delay:
-    1.1s,
-    5.9s;
 }
 
+.scene-orbit.scene-active .orbit-trail-one {
+  animation: trailRevealOne 3s ease forwards;
+}
+
+.scene-orbit.scene-active .orbit-trail-two {
+  animation: trailRevealTwo 3s ease 0.5s forwards;
+}
+
+.scene-orbit.scene-active .orbit-trail-three {
+  animation: trailRevealThree 3s ease 1s forwards;
+}
 
 @keyframes trailRevealOne {
-  from {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      scaleX(0)
-      rotate(-15deg);
-  }
-
   to {
     opacity: 0.8;
 
@@ -1243,17 +950,7 @@ body {
   }
 }
 
-
 @keyframes trailRevealTwo {
-  from {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      scaleX(0)
-      rotate(35deg);
-  }
-
   to {
     opacity: 0.65;
 
@@ -1264,17 +961,7 @@ body {
   }
 }
 
-
 @keyframes trailRevealThree {
-  from {
-    opacity: 0;
-
-    transform:
-      translate(-50%, -50%)
-      scaleX(0)
-      rotate(80deg);
-  }
-
   to {
     opacity: 0.55;
 
@@ -1285,51 +972,20 @@ body {
   }
 }
 
-
-@keyframes trailFloatOne {
-  50% {
-    transform:
-      translate(-50%, -50%)
-      rotate(-12deg)
-      scale(1.04);
-  }
-}
-
-
-@keyframes trailFloatTwo {
-  50% {
-    transform:
-      translate(-50%, -50%)
-      rotate(39deg)
-      scale(1.05);
-  }
-}
-
-
-@keyframes trailFloatThree {
-  50% {
-    transform:
-      translate(-50%, -50%)
-      rotate(76deg)
-      scale(1.04);
-  }
-}
-
-
 .orbit-oing-back {
   width: min(42vw, 470px);
 
   left: 50%;
   top: 45%;
 
-  transform:
-    translate(-50%, -50%);
-
-  animation:
-    orbitOingAppear 1.8s ease forwards,
-    orbitOingFloat 5s ease-in-out 1.8s infinite;
+  transform: translate(-50%, -50%);
 }
 
+.scene-orbit.scene-active .orbit-oing-back {
+  animation:
+    orbitOingAppear 2s ease forwards,
+    orbitOingFloat 5s ease-in-out 2s infinite;
+}
 
 @keyframes orbitOingAppear {
   from {
@@ -1337,7 +993,7 @@ body {
 
     transform:
       translate(-50%, -45%)
-      scale(0.82);
+      scale(0.8);
   }
 
   to {
@@ -1348,7 +1004,6 @@ body {
       scale(1);
   }
 }
-
 
 @keyframes orbitOingFloat {
   0%,
@@ -1360,18 +1015,10 @@ body {
 
   50% {
     transform:
-      translate(
-        -50%,
-        calc(-50% - 12px)
-      )
+      translate(-50%, calc(-50% - 12px))
       rotate(2deg);
   }
 }
-
-
-/* =====================================================
-   ORBIT BOOKS
-===================================================== */
 
 .orbit-book {
   position: absolute;
@@ -1379,122 +1026,100 @@ body {
   width: min(13vw, 150px);
 
   z-index: 12;
-
-  filter:
-    drop-shadow(
-      0 12px 24px rgba(0, 0, 0, 0.2)
-    );
-
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
 }
-
 
 .orbit-book img {
   width: 100%;
   height: auto;
 }
 
-
 .orbit-book-one {
   left: 18%;
   top: 20%;
-
-  animation:
-    orbitBookOne 6s ease-in-out infinite;
 }
-
 
 .orbit-book-two {
   right: 17%;
   top: 25%;
-
-  animation:
-    orbitBookTwo 7s ease-in-out infinite;
 }
-
 
 .orbit-book-three {
   left: 22%;
   bottom: 18%;
-
-  animation:
-    orbitBookThree 6.5s ease-in-out infinite;
 }
-
 
 .orbit-book-four {
   right: 20%;
   bottom: 15%;
-
-  animation:
-    orbitBookFour 7.5s ease-in-out infinite;
 }
 
+.scene-orbit.scene-active .orbit-book-one {
+  animation: orbitBookOne 5s ease-in-out 1s infinite;
+}
+
+.scene-orbit.scene-active .orbit-book-two {
+  animation: orbitBookTwo 6s ease-in-out 1s infinite;
+}
+
+.scene-orbit.scene-active .orbit-book-three {
+  animation: orbitBookThree 5.5s ease-in-out 1s infinite;
+}
+
+.scene-orbit.scene-active .orbit-book-four {
+  animation: orbitBookFour 6.5s ease-in-out 1s infinite;
+}
 
 @keyframes orbitBookOne {
   0%,
   100% {
-    transform:
-      translate(0, 0)
-      rotate(-10deg);
+    opacity: 1;
+    transform: translate(0, 0) rotate(-10deg);
   }
 
   50% {
-    transform:
-      translate(8vw, 5vh)
-      rotate(30deg);
+    opacity: 1;
+    transform: translate(8vw, 5vh) rotate(30deg);
   }
 }
-
 
 @keyframes orbitBookTwo {
   0%,
   100% {
-    transform:
-      translate(0, 0)
-      rotate(15deg);
+    opacity: 1;
+    transform: translate(0, 0) rotate(15deg);
   }
 
   50% {
-    transform:
-      translate(-8vw, 6vh)
-      rotate(-35deg);
+    opacity: 1;
+    transform: translate(-8vw, 6vh) rotate(-35deg);
   }
 }
-
 
 @keyframes orbitBookThree {
   0%,
   100% {
-    transform:
-      translate(0, 0)
-      rotate(25deg);
+    opacity: 1;
+    transform: translate(0, 0) rotate(25deg);
   }
 
   50% {
-    transform:
-      translate(9vw, -6vh)
-      rotate(80deg);
+    opacity: 1;
+    transform: translate(9vw, -6vh) rotate(80deg);
   }
 }
-
 
 @keyframes orbitBookFour {
   0%,
   100% {
-    transform:
-      translate(0, 0)
-      rotate(-20deg);
+    opacity: 1;
+    transform: translate(0, 0) rotate(-20deg);
   }
 
   50% {
-    transform:
-      translate(-9vw, -7vh)
-      rotate(-80deg);
+    opacity: 1;
+    transform: translate(-9vw, -7vh) rotate(-80deg);
   }
 }
-
 
 /* =====================================================
    SCENE 5 — REALIZATION
@@ -1504,12 +1129,10 @@ body {
   z-index: 20;
 }
 
-
 .realization-light {
   position: absolute;
 
   width: min(55vw, 650px);
-
   aspect-ratio: 1;
 
   left: 50%;
@@ -1520,28 +1143,27 @@ body {
   background:
     radial-gradient(
       circle,
-      rgba(252, 240, 87, 0.34),
-      rgba(115, 210, 223, 0.14) 42%,
-      transparent 72%
+      rgba(252, 240, 87, 0.32),
+      rgba(115, 210, 223, 0.12) 40%,
+      transparent 70%
     );
-
-  transform:
-    translate(-50%, -50%);
 
   opacity: 0;
 
+  transform: translate(-50%, -50%);
+}
+
+.scene-realization.scene-active .realization-light {
   animation:
     realizationLightAppear 2s ease forwards,
     realizationLightPulse 5s ease-in-out 2s infinite;
 }
-
 
 @keyframes realizationLightAppear {
   to {
     opacity: 1;
   }
 }
-
 
 @keyframes realizationLightPulse {
   0%,
@@ -1558,7 +1180,6 @@ body {
   }
 }
 
-
 .realization-orbits {
   position: absolute;
 
@@ -1567,15 +1188,22 @@ body {
   left: 50%;
   top: 45%;
 
-  opacity: 0.28;
+  opacity: 0;
 
-  transform:
-    translate(-50%, -50%);
-
-  animation:
-    realizationOrbitRotate 18s linear infinite;
+  transform: translate(-50%, -50%);
 }
 
+.scene-realization.scene-active .realization-orbits {
+  animation:
+    realizationOrbitAppear 2s ease forwards,
+    realizationOrbitRotate 18s linear 2s infinite;
+}
+
+@keyframes realizationOrbitAppear {
+  to {
+    opacity: 0.3;
+  }
+}
 
 @keyframes realizationOrbitRotate {
   from {
@@ -1591,21 +1219,7 @@ body {
   }
 }
 
-
-.realization-oing-tilt {
-  width: min(44vw, 470px);
-
-  left: 50%;
-  top: 45%;
-
-  transform:
-    translate(-50%, -50%);
-
-  animation:
-    tiltMoment 2.3s ease forwards;
-}
-
-
+.realization-oing-tilt,
 .realization-oing-determined {
   width: min(44vw, 470px);
 
@@ -1614,18 +1228,18 @@ body {
 
   opacity: 0;
 
-  transform:
-    translate(-50%, -50%);
-
-  animation:
-    determinedAppear 1.4s ease forwards,
-    determinedFloat 4s ease-in-out 1.4s infinite;
-
-  animation-delay:
-    1.8s,
-    3.2s;
+  transform: translate(-50%, -50%);
 }
 
+.scene-realization.scene-active .realization-oing-tilt {
+  animation: tiltMoment 2.5s ease forwards;
+}
+
+.scene-realization.scene-active .realization-oing-determined {
+  animation:
+    determinedAppear 1.5s ease 2s forwards,
+    determinedFloat 4s ease-in-out 3.5s infinite;
+}
 
 @keyframes tiltMoment {
   0% {
@@ -1633,11 +1247,11 @@ body {
 
     transform:
       translate(-50%, -45%)
-      scale(0.86);
+      scale(0.85);
   }
 
-  25%,
-  72% {
+  30%,
+  75% {
     opacity: 1;
 
     transform:
@@ -1650,14 +1264,13 @@ body {
   }
 }
 
-
 @keyframes determinedAppear {
   from {
     opacity: 0;
 
     transform:
       translate(-50%, -50%)
-      scale(0.86);
+      scale(0.85);
   }
 
   to {
@@ -1669,7 +1282,6 @@ body {
   }
 }
 
-
 @keyframes determinedFloat {
   0%,
   100% {
@@ -1680,14 +1292,10 @@ body {
 
   50% {
     transform:
-      translate(
-        -50%,
-        calc(-50% - 14px)
-      )
+      translate(-50%, calc(-50% - 14px))
       rotate(2deg);
   }
 }
-
 
 /* =====================================================
    STORY TEXT
@@ -1701,8 +1309,7 @@ body {
   left: 50%;
   bottom: 11vh;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
   text-align: center;
 
@@ -1711,15 +1318,12 @@ body {
   pointer-events: none;
 }
 
-
 .story-text {
   margin: 0;
 
-  color:
-    rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.96);
 
-  font-size:
-    clamp(22px, 2.8vw, 40px);
+  font-size: clamp(22px, 2.8vw, 40px);
 
   font-weight: 600;
 
@@ -1730,37 +1334,31 @@ body {
   text-shadow:
     0 4px 30px rgba(115, 210, 223, 0.25);
 
-  animation:
-    storyTextAppear 0.9s ease forwards;
+  animation: storyTextAppear 0.8s ease forwards;
 }
-
 
 .story-text-wide {
-  font-size:
-    clamp(22px, 3vw, 44px);
+  font-size: clamp(22px, 3vw, 44px);
 }
 
-
 .story-text-final {
-  color: var(--yellow);
+  color: #fcf057;
 
-  font-size:
-    clamp(26px, 3.5vw, 52px);
+  font-size: clamp(26px, 3.5vw, 52px);
 
   font-weight: 700;
 
   text-shadow:
-    0 0 22px rgba(252, 240, 87, 0.48),
-    0 0 65px rgba(115, 210, 223, 0.25);
+    0 0 20px rgba(252, 240, 87, 0.45),
+    0 0 60px rgba(115, 210, 223, 0.25);
 }
-
 
 @keyframes storyTextAppear {
   from {
     opacity: 0;
 
     transform:
-      translateY(18px)
+      translateY(20px)
       scale(0.98);
   }
 
@@ -1773,9 +1371,8 @@ body {
   }
 }
 
-
 /* =====================================================
-   ENTER / SKIP BUTTON
+   ENTER BUTTON
 ===================================================== */
 
 .intro-enter-button {
@@ -1786,23 +1383,15 @@ body {
 
   z-index: 200;
 
-  border:
-    1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
-  background:
-    rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 
-  color:
-    rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.85);
 
-  backdrop-filter:
-    blur(12px);
+  backdrop-filter: blur(12px);
 
-  -webkit-backdrop-filter:
-    blur(12px);
-
-  padding:
-    11px 18px;
+  padding: 11px 18px;
 
   border-radius: 999px;
 
@@ -1813,28 +1402,19 @@ body {
   transition:
     transform 0.2s ease,
     background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    color 0.2s ease;
 }
-
 
 .intro-enter-button:hover {
-  transform:
-    translateY(-2px);
+  transform: translateY(-2px);
 
-  background:
-    rgba(252, 240, 87, 0.16);
+  background: rgba(252, 240, 87, 0.18);
 
-  border-color:
-    rgba(252, 240, 87, 0.4);
-
-  color:
-    var(--yellow);
+  color: #fcf057;
 }
 
-
 /* =====================================================
-   LAUNCH SCENE
+   LAUNCH
 ===================================================== */
 
 .launch-scene {
@@ -1847,7 +1427,6 @@ body {
 
   pointer-events: none;
 }
-
 
 .launch-starburst {
   position: absolute;
@@ -1864,10 +1443,8 @@ body {
     translate(-50%, -50%)
     scale(0.2);
 
-  animation:
-    starburstLaunch 1.5s ease-out forwards;
+  animation: starburstLaunch 1.5s ease-out forwards;
 }
-
 
 @keyframes starburstLaunch {
   0% {
@@ -1892,7 +1469,6 @@ body {
   }
 }
 
-
 .shooting-oing-wrap {
   position: absolute;
 
@@ -1901,10 +1477,8 @@ body {
   left: 38vw;
   top: 30vh;
 
-  animation:
-    shootingLaunch 2.4s cubic-bezier(.55, 0, .95, .25) forwards;
+  animation: shootingLaunch 2.4s cubic-bezier(.55, 0, .95, .25) forwards;
 }
-
 
 .shooting-oing {
   position: relative;
@@ -1912,7 +1486,6 @@ body {
   width: 100%;
   height: auto;
 }
-
 
 @keyframes shootingLaunch {
   0% {
@@ -1941,7 +1514,6 @@ body {
   }
 }
 
-
 .launch-trail-short {
   position: absolute;
 
@@ -1957,13 +1529,10 @@ body {
     rotate(-18deg)
     scaleX(0);
 
-  transform-origin:
-    right center;
+  transform-origin: right center;
 
-  animation:
-    shortTrailLaunch 1.2s ease-out forwards;
+  animation: shortTrailLaunch 1.2s ease-out forwards;
 }
-
 
 @keyframes shortTrailLaunch {
   20% {
@@ -1978,7 +1547,6 @@ body {
       scaleX(1);
   }
 }
-
 
 .launch-trail-long {
   position: absolute;
@@ -1995,14 +1563,12 @@ body {
     rotate(-18deg)
     scaleX(0);
 
-  transform-origin:
-    left center;
+  transform-origin: left center;
 
   animation:
     longTrailLaunch 2s ease-out forwards,
     trailGlow 1.5s ease-in-out infinite;
 }
-
 
 @keyframes longTrailLaunch {
   0% {
@@ -2026,26 +1592,13 @@ body {
   }
 }
 
-
 @keyframes trailGlow {
-  0%,
-  100% {
-    filter:
-      brightness(1)
-      drop-shadow(
-        0 0 15px rgba(115, 210, 223, 0.25)
-      );
-  }
-
   50% {
     filter:
       brightness(1.3)
-      drop-shadow(
-        0 0 30px rgba(252, 240, 87, 0.8)
-      );
+      drop-shadow(0 0 30px rgba(252, 240, 87, 0.8));
   }
 }
-
 
 .launch-whiteout {
   position: absolute;
@@ -2062,10 +1615,8 @@ body {
 
   opacity: 0;
 
-  animation:
-    launchWhiteout 2.4s ease forwards;
+  animation: launchWhiteout 2.4s ease forwards;
 }
-
 
 @keyframes launchWhiteout {
   0%,
@@ -2074,7 +1625,7 @@ body {
   }
 
   70% {
-    opacity: 0.82;
+    opacity: 0.8;
   }
 
   100% {
@@ -2082,43 +1633,17 @@ body {
   }
 }
 
-
 /* =====================================================
    MOBILE
 ===================================================== */
 
 @media (max-width: 700px) {
-
-  .intro-nebula-main {
-    width: 160vw;
-
-    left: -30vw;
-  }
-
-  .intro-nebula-mint {
-    width: 120vw;
-
-    left: -40vw;
-  }
-
-  .intro-nebula-yellow {
-    width: 100vw;
-
-    right: -35vw;
-  }
-
-
-  /* SCENE 1 */
-
   .lost-oing-wrap {
     width: 65vw;
 
     left: 16vw;
     top: 27vh;
   }
-
-
-  /* SCENE 2 */
 
   .first-oing-side,
   .first-oing-curious {
@@ -2142,9 +1667,6 @@ body {
     top: 32vh;
   }
 
-
-  /* SCENE 3 */
-
   .surprised-oing,
   .excited-oing,
   .happy-oing,
@@ -2161,23 +1683,6 @@ body {
   .story-book-open-mint,
   .story-book-open-blue {
     display: none;
-  }
-
-  .emphasis-marks {
-    width: 28vw;
-
-    left: 58vw;
-  }
-
-
-  /* SCENE 4 */
-
-  .orbit-rings {
-    width: 145vw;
-  }
-
-  .orbit-glow-orbs {
-    width: 145vw;
   }
 
   .orbit-book {
@@ -2200,25 +1705,9 @@ body {
     right: 8vw;
   }
 
-
-  /* TEXT */
-
   .intro-text {
     bottom: 14vh;
   }
-
-  .story-text {
-    font-size:
-      clamp(20px, 6vw, 30px);
-  }
-
-  .story-text-final {
-    font-size:
-      clamp(24px, 7vw, 36px);
-  }
-
-
-  /* BUTTON */
 
   .intro-enter-button {
     right: 16px;
@@ -2226,12 +1715,8 @@ body {
 
     font-size: 12px;
 
-    padding:
-      9px 14px;
+    padding: 9px 14px;
   }
-
-
-  /* LAUNCH */
 
   .shooting-oing-wrap {
     width: 85vw;
@@ -2240,39 +1725,10 @@ body {
     top: 30vh;
   }
 
-  .launch-starburst {
-    width: 130vw;
-
-    left: 50%;
-  }
-
-  .launch-trail-short {
-    width: 120vw;
-
-    left: -20vw;
-  }
-
   .launch-trail-long {
     width: 220vw;
 
     left: -70vw;
     top: 32vh;
-  }
-}
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
