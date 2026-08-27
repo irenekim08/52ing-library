@@ -26,24 +26,12 @@ export default function LibraryExperience({
     setShowIntro(true);
   }, []);
 
-  function enterLibrary() {
-    localStorage.setItem("52ing-intro-seen", "true");
-
-    setShowIntro(false);
-
-    setTimeout(() => {
-      document.getElementById("series-explorer")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 300);
-  }
-
   if (showIntro === null) {
     return <main className="min-h-screen bg-[#111A2E]" />;
   }
 
   if (showIntro) {
-    return <Intro onEnter={enterLibrary} />;
+    return <Intro onEnter={() => setShowIntro(false)} />;
   }
 
   return <LibraryHome books={books} />;
