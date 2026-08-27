@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Intro from "./Intro";
-import BookBrowser from "./BookBrowser";
+import LibraryHome from "./LibraryHome";
 
 type Book = {
   id: string;
@@ -26,29 +26,25 @@ export default function LibraryExperience({
     setShowIntro(true);
   }, []);
 
+  function enterLibrary() {
+    localStorage.setItem("52ing-intro-seen", "true");
+
+    setShowIntro(false);
+
+    setTimeout(() => {
+      document.getElementById("series-explorer")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 300);
+  }
+
   if (showIntro === null) {
-    return (
-      <main className="min-h-screen bg-[#111A2E]" />
-    );
+    return <main className="min-h-screen bg-[#111A2E]" />;
   }
 
   if (showIntro) {
-    return (
-      <Intro
-        onEnter={() => {
-          setShowIntro(false);
-
-          setTimeout(() => {
-            document
-              .getElementById("series-explorer")
-              ?.scrollIntoView({
-                behavior: "smooth",
-              });
-          }, 100);
-        }}
-      />
-    );
+    return <Intro onEnter={enterLibrary} />;
   }
 
-  return <BookBrowser books={books} />;
+  return <LibraryHome books={books} />;
 }
