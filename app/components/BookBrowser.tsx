@@ -403,7 +403,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       {/* SERIES */}
 
       {Object.keys(seriesGroups).length > 0 && (
-        <>
+          <div id="series-explorer">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-[2px] bg-[#73D2DF]" />
 
@@ -482,7 +482,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
               )
             )}
           </div>
-        </>
+        </div>
       )}
 
       {/* INDIVIDUAL BOOKS */}
