@@ -15,7 +15,12 @@ type Book = {
 
 function BookCard({ book }: { book: Book }) {
   return (
-    <div className="group relative bg-[#DDF7F8] rounded-[2rem] p-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+    <a
+      href="https://forms.gle/ZcEpwMP627qLGeFK8"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block cursor-pointer rounded-[2rem] bg-[#DDF7F8] p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+    >
 
     {/* 대여 상태 */}
     {book.availability && (
@@ -101,7 +106,7 @@ function BookCard({ book }: { book: Book }) {
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
