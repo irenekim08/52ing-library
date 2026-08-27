@@ -1,5 +1,4 @@
 import LibraryExperience from "./components/LibraryExperience";
-import Image from "next/image";
 import Papa from "papaparse";
 
 type SheetBook = {
