@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Intro from "./Intro";
 import LibraryHome from "./LibraryHome";
 
 type Book = {
@@ -20,19 +18,5 @@ export default function LibraryExperience({
 }: {
   books: Book[];
 }) {
-  const [showIntro, setShowIntro] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    setShowIntro(true);
-  }, []);
-
-  if (showIntro === null) {
-    return <main className="min-h-screen bg-[#111A2E]" />;
-  }
-
-  if (showIntro) {
-    return <Intro onEnter={() => setShowIntro(false)} />;
-  }
-
   return <LibraryHome books={books} />;
 }
