@@ -440,7 +440,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                   "
                 >
                   {/* decorative orbit */}
-                  <div className="absolute -right-10 -top-10 w-28 h-28 border-2 border-[#73D2DF]/50 rounded-full" />
+                  <div className="absolute -right-10 -top-10 w-28 h-28 border-2 border-[#73D2DF]/50 rounded-full text-[#247F8B]" />
 
                   <div className="relative flex justify-center mb-3">
                     {seriesBooks[0].cover ? (
@@ -474,7 +474,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                   </p>
 
                   <div className="relative mt-3 text-center">
-                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-l font-bold">
+                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-l font-bold text-[#247F8B]">
                       탐험하기 →
                     </span>
                   </div>
@@ -520,7 +520,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                 px-8
                 py-4
                 font-bold
-                text-[#1F2A44]
+                text-[#247F8B]
                 shadow-md
                 transition-all
                 duration-300
