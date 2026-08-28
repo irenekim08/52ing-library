@@ -342,6 +342,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
             border-2
             border-[#73D2DF]/40
             bg-white
+            text-[#1F2A44]/60
             px-4
             py-3
             outline-none
