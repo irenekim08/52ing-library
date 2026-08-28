@@ -25,7 +25,7 @@ function BookCard({ book }: { book: Book }) {
     {/* 대여 상태 */}
     {book.availability && (
     <div
-        className={`absolute top-3 left-3 z-10 rounded-full px-3 py-1 text-xs font-bold shadow-sm ${
+        className={`absolute top-3 left-3 z-10 rounded-full px-3 py-1 text-m font-bold shadow-sm ${
         book.availability.trim() === "Available"
             ? "bg-[#73D2DF] text-[#1F2A44]"
             : book.availability.trim() === "Borrowed"
@@ -88,19 +88,19 @@ function BookCard({ book }: { book: Book }) {
           {book.title}
         </h3>
 
-        <p className="text-gray-500 text-sm mt-1">
+        <p className="text-gray-500 text-m mt-1">
           {book.author}
         </p>
 
         <div className="flex justify-center flex-wrap gap-2 mt-3">
           {book.category && (
-            <span className="bg-[#73D2DF]/40 px-3 py-1 rounded-full text-xs">
+            <span className="bg-[#73D2DF]/40 px-3 py-1 rounded-full text-m">
               {book.category}
             </span>
           )}
 
           {book.age && (
-            <span className="bg-[#FCF057]/60 px-3 py-1 rounded-full text-xs">
+            <span className="bg-[#FCF057]/60 px-3 py-1 rounded-full text-m">
               {book.age}
             </span>
           )}
@@ -294,7 +294,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
             오잉 탐색 조종석
         </h2>
 
-        <p className="text-sm text-gray-500">
+        <p className="text-m text-gray-500">
             찾고 싶은 책의 좌표를 입력하세요!
         </p>
         </div>
@@ -304,7 +304,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🔭 SEARCH */}
         <div>
-        <label className="text-xs font-bold text-[#1F2A44]">
+        <label className="text-m font-bold text-[#1F2A44]">
             🔭 책 검색
         </label>
 
@@ -328,7 +328,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🪐 CATEGORY */}
         <div>
-        <label className="text-xs font-bold text-[#1F2A44]">
+        <label className="text-m font-bold text-[#1F2A44]">
             🪐 카테고리
         </label>
 
@@ -357,7 +357,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🌙 AGE */}
         <div>
-        <label className="text-xs font-bold text-[#1F2A44]">
+        <label className="text-m font-bold text-[#1F2A44]">
             🌙 추천 연령
         </label>
 
@@ -386,7 +386,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
     </div>
 
-    <p className="relative mt-5 text-sm text-[#1F2A44]/60">
+    <p className="relative mt-5 text-m text-[#1F2A44]/60">
         📡 현재 탐지된 책: {filteredBooks.length}권
     </p>
     </div>
@@ -469,12 +469,12 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     {seriesName}
                   </h3>
 
-                  <p className="relative mt-2 text-[#1F2A44]/60 text-sm text-center">
+                  <p className="relative mt-2 text-[#1F2A44]/60 text-m text-center">
                     {seriesBooks.length}권의 이야기
                   </p>
 
                   <div className="relative mt-3 text-center">
-                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-xs font-bold">
+                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-m font-bold">
                       탐험하기 →
                     </span>
                   </div>
@@ -538,7 +538,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
             </span>
             </button>
 
-            <p className="mt-3 text-sm text-[#1F2A44]/60">
+            <p className="mt-3 text-m text-[#1F2A44]/60">
             {Math.min(visibleBooks, individualBooks.length)} / {individualBooks.length}권 탐험 중
             </p>
         </div>
