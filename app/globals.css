@@ -24,148 +24,179 @@ button {
 }
 
 
-/* =========================================================
-   OING INTRO
-========================================================= */
+/* =====================================================
+   OING LIBRARY — INTRO
+===================================================== */
 
 .intro {
   position: fixed;
   inset: 0;
 
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
 
   overflow: hidden;
 
-  background: #111a2e;
+  z-index: 9999;
+
+  background: #10192e;
+
+  color: white;
 
   isolation: isolate;
-
-  z-index: 9999;
 }
 
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
+/* =====================================================
+   BACKGROUND LAYER
+===================================================== */
 
 .intro-space {
   position: absolute;
   inset: 0;
 
+  z-index: 0;
+
   background:
     radial-gradient(
-      circle at 50% 45%,
-      rgba(37, 65, 105, 0.75),
-      transparent 42%
+      circle at 50% 50%,
+      rgba(36, 59, 95, 0.7),
+      transparent 45%
     ),
     radial-gradient(
       circle at 15% 80%,
-      rgba(115, 210, 223, 0.16),
-      transparent 30%
+      rgba(115, 210, 223, 0.12),
+      transparent 35%
     ),
     radial-gradient(
       circle at 85% 15%,
-      rgba(252, 240, 87, 0.1),
-      transparent 25%
+      rgba(252, 240, 87, 0.08),
+      transparent 30%
     ),
-    #111a2e;
+    #10192e;
 
-  z-index: -10;
+  pointer-events: none;
 }
 
+
+/* =====================================================
+   BACKGROUND GRAPHICS
+===================================================== */
+
+.intro-nebula,
+.intro-stardust,
+.intro-sparkles,
+.intro-asteroids {
+  z-index: 1;
+
+  pointer-events: none;
+}
 
 .intro-nebula {
   position: absolute;
 
-  pointer-events: none;
-
   object-fit: contain;
+
+  opacity: 1;
 }
 
 
 .intro-nebula-main {
-  width: min(95vw, 1100px);
+  width: min(75vw, 900px);
+  height: auto;
 
-  left: 50%;
-  top: 50%;
+  left: -8vw;
+  top: -8vh;
 
-  opacity: 0.3;
+  opacity: 0.28;
 
-  transform: translate(-50%, -50%);
-
-  animation: nebulaDrift 25s ease-in-out infinite alternate;
+  animation: nebulaDrift 22s ease-in-out infinite alternate;
 }
 
 
 .intro-nebula-mint {
-  width: min(60vw, 750px);
+  width: min(55vw, 650px);
 
-  left: -10vw;
+  left: -15vw;
   bottom: -20vh;
 
-  opacity: 0.13;
+  opacity: 0.18;
 
-  animation: mintDrift 28s ease-in-out infinite alternate;
+  animation: nebulaFloatMint 25s ease-in-out infinite alternate;
 }
 
 
 .intro-nebula-yellow {
-  width: min(55vw, 650px);
+  width: min(50vw, 600px);
 
-  right: -12vw;
-  top: -15vh;
+  right: -15vw;
+  top: -10vh;
 
-  opacity: 0.1;
+  opacity: 0.12;
 
-  animation: yellowDrift 30s ease-in-out infinite alternate;
+  animation: nebulaFloatYellow 28s ease-in-out infinite alternate;
 }
 
 
-@keyframes nebulaDrift {
-  from {
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-  }
+.intro-stardust {
+  position: absolute;
 
-  to {
-    transform:
-      translate(calc(-50% + 3vw), calc(-50% + 2vh))
-      scale(1.04);
-  }
+  inset: -10%;
+
+  width: 120%;
+  height: 120%;
+
+  object-fit: cover;
+
+  opacity: 0.4;
+
+  animation: stardustDrift 35s linear infinite;
 }
 
 
-@keyframes mintDrift {
-  from {
-    transform:
-      translate(0, 0)
-      rotate(-3deg);
-  }
+.intro-sparkles {
+  position: absolute;
 
-  to {
-    transform:
-      translate(5vw, -3vh)
-      rotate(3deg);
-  }
+  width: min(80vw, 1000px);
+  height: auto;
+
+  opacity: 0.35;
+
+  animation: sparklePulse 6s ease-in-out infinite;
 }
 
 
-@keyframes yellowDrift {
-  from {
-    transform:
-      translate(0, 0)
-      rotate(3deg);
-  }
-
-  to {
-    transform:
-      translate(-4vw, 4vh)
-      rotate(-3deg);
-  }
+.intro-sparkles-one {
+  left: -5vw;
+  top: -10vh;
 }
 
+
+.intro-sparkles-two {
+  right: -15vw;
+  bottom: -15vh;
+
+  transform: rotate(180deg);
+
+  animation-delay: -3s;
+}
+
+
+.intro-asteroids {
+  position: absolute;
+
+  width: min(28vw, 350px);
+
+  height: auto;
+
+  left: -5vw;
+
+  bottom: -8vh;
+
+  opacity: 0.18;
+
+  animation: asteroidFloat 18s ease-in-out infinite alternate;
+}
 
 /* =========================================================
    STARS
@@ -241,55 +272,56 @@ button {
 }
 
 
-/* =========================================================
+/* =====================================================
    SCENE SYSTEM
-========================================================= */
+===================================================== */
 
 .intro-scene {
   position: absolute;
   inset: 0;
 
-  opacity: 0;
+  z-index: 10;
 
   pointer-events: none;
 
   visibility: hidden;
 
-  transform: scale(0.98);
+  opacity: 0;
+
+  transform: scale(1.015);
 
   transition:
-    opacity 1.8s cubic-bezier(.22, 1, .36, 1),
-    transform 2s cubic-bezier(.22, 1, .36, 1),
+    opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s linear 1.8s;
-
-  z-index: 10;
 }
 
 
 .intro-scene.scene-active {
-  opacity: 1;
-
   visibility: visible;
+
+  opacity: 1;
 
   transform: scale(1);
 
   transition:
-    opacity 1.8s cubic-bezier(.22, 1, .36, 1),
-    transform 2s cubic-bezier(.22, 1, .36, 1),
+    opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s;
 }
 
 
 .intro-scene.scene-leaving {
-  opacity: 0;
-
   visibility: visible;
 
-  transform: scale(1.035);
+  opacity: 0;
+
+  transform: scale(1.025);
 
   transition:
-    opacity 1.8s ease,
-    transform 1.8s ease;
+    opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 1.5s;
 }
 
 
@@ -300,16 +332,39 @@ button {
 .intro-oing {
   position: absolute;
 
-  width: auto;
-  height: auto;
+  z-index: 20;
+
+  display: block;
 
   object-fit: contain;
+
+  height: auto;
 
   user-select: none;
 
   pointer-events: none;
 }
 
+.story-book,
+.orbit-book,
+.first-book-wrap,
+.first-book-glow {
+  z-index: 15;
+}
+
+
+.emphasis-marks {
+  z-index: 25;
+}
+
+
+.realization-light,
+.realization-orbits,
+.orbit-rings,
+.orbit-glow-orbs,
+.orbit-trail {
+  z-index: 5;
+}
 
 /* =========================================================
    SCENE 1 — LOST
@@ -339,17 +394,19 @@ button {
     opacity: 0;
 
     transform:
-      translateX(-30vw)
-      translateY(-5vh)
-      rotate(-12deg)
-      scale(0.85);
+      translate(-50%, -50%)
+      translateX(-35vw)
+      translateY(-3vh)
+      rotate(-15deg)
+      scale(0.75);
   }
 
   to {
     opacity: 1;
 
     transform:
-      translate(0, 0)
+      translate(-50%, -50%)
+      translateY(0)
       rotate(2deg)
       scale(1);
   }
@@ -360,14 +417,16 @@ button {
   0%,
   100% {
     transform:
-      translateY(0)
+      translate(-50%, -50%)
+      translateY(-8px)
       rotate(-2deg);
   }
 
   50% {
     transform:
-      translateY(-14px)
-      rotate(3deg);
+      translate(-50%, -50%)
+      translateY(12px)
+      rotate(2deg);
   }
 }
 
@@ -1522,10 +1581,20 @@ button {
 @media (max-width: 700px) {
 
   .lost-oing-wrap {
-    width: 58vw;
+    position: absolute;
 
-    left: 21vw;
-    top: 28vh;
+    z-index: 20;
+
+    width: min(28vw, 340px);
+
+    left: 50%;
+    top: 43%;
+
+    transform: translate(-50%, -50%);
+
+    animation:
+      lostEnter 2.6s cubic-bezier(.22, 1, .36, 1) forwards,
+      lostFloat 5s ease-in-out 2.6s infinite;
   }
 
   .first-oing-side,
