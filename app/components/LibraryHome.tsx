@@ -182,7 +182,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
             <div className="flex justify-center">
               <Image
-                src="/oing-story.png"
+                src="oing/oing-story.png"
                 alt="오잉이의 이야기"
                 width={1600}
                 height={2200}
