@@ -94,13 +94,13 @@ function BookCard({ book }: { book: Book }) {
 
         <div className="flex justify-center flex-wrap gap-2 mt-3">
           {book.category && (
-            <span className="bg-[#73D2DF]/40 px-3 py-1 rounded-full text-m">
+            <span className="bg-[#73D2DF]/40 px-3 py-1 rounded-full text-m text-[#1F2A44]/60">
               {book.category}
             </span>
           )}
 
           {book.age && (
-            <span className="bg-[#FCF057]/60 px-3 py-1 rounded-full text-m">
+            <span className="bg-[#FCF057]/60 px-3 py-1 rounded-full text-m text-[#1F2A44]/60">
               {book.age}
             </span>
           )}
