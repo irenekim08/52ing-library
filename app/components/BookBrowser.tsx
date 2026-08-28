@@ -503,14 +503,14 @@ export default function BookBrowser({ books }: { books: Book[] }) {
         오잉의 우주를 자유롭게 돌아다녀 보세요.
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5 text-[#247F8B]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5 text-[#1F2A44]/60">
         {individualBooks.slice(0, visibleBooks).map((book) => (
             <BookCard key={book.id} book={book} />
         ))}
         </div>
 
       {visibleBooks < individualBooks.length && (
-        <div className="flex flex-col items-center mt-10 text-[#247F8B]">
+        <div className="flex flex-col items-center mt-10 text-[#1F2A44]/60">
             <button
             onClick={() => setVisibleBooks((prev) => prev + 30)}
             className="
@@ -522,7 +522,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                 px-8
                 py-4
                 font-bold
-                text-[#247F8B]
+                text-[#1F2A44]/60
                 shadow-md
                 transition-all
                 duration-300
