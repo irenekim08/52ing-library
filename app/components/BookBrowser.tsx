@@ -428,6 +428,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     group
                     relative
                     text-left
+                    text-[#1F2A44]/60
                     bg-[#BDFDFF]/25
                     rounded-[2rem]
                     p-4
@@ -474,7 +475,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                   </p>
 
                   <div className="relative mt-3 text-center">
-                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-l font-bold text-[#247F8B]">
+                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-l font-bold text-[#1F2A44]/60">
                       탐험하기 →
                     </span>
                   </div>
