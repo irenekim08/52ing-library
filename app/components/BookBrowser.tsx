@@ -304,7 +304,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🔭 SEARCH */}
         <div>
-        <label className="text-m font-bold text-[#1F2A44]">
+        <label className="text-l font-bold text-[#1F2A44]">
             🔭 책 검색
         </label>
 
@@ -328,7 +328,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🪐 CATEGORY */}
         <div>
-        <label className="text-m font-bold text-[#1F2A44]">
+        <label className="text-l font-bold text-[#1F2A44]">
             🪐 카테고리
         </label>
 
@@ -357,7 +357,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🌙 AGE */}
         <div>
-        <label className="text-m font-bold text-[#1F2A44]">
+        <label className="text-l font-bold text-[#1F2A44]">
             🌙 추천 연령
         </label>
 
@@ -386,7 +386,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
     </div>
 
-    <p className="relative mt-5 text-m text-[#1F2A44]/60">
+    <p className="relative mt-5 text-l text-[#1F2A44]/60">
         📡 현재 탐지된 책: {filteredBooks.length}권
     </p>
     </div>
@@ -469,12 +469,12 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     {seriesName}
                   </h3>
 
-                  <p className="relative mt-2 text-[#1F2A44]/60 text-m text-center">
+                  <p className="relative mt-2 text-[#1F2A44]/60 text-l text-center">
                     {seriesBooks.length}권의 이야기
                   </p>
 
                   <div className="relative mt-3 text-center">
-                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-m font-bold">
+                    <span className="inline-block bg-[#FCF057] px-3 py-1 rounded-full text-l font-bold">
                       탐험하기 →
                     </span>
                   </div>
@@ -488,7 +488,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       {/* INDIVIDUAL BOOKS */}
 
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-[2px] bg-[#FCF057]" />
+        <div className="w-10 h-[2px] bg-[#FCF057] text-[#247F8B]" />
 
         <h2 className="text-2xl font-bold text-[#1F2A44]">
           책 탐험하기
@@ -538,7 +538,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
             </span>
             </button>
 
-            <p className="mt-3 text-m text-[#1F2A44]/60">
+            <p className="mt-3 text-l text-[#1F2A44]/60">
             {Math.min(visibleBooks, individualBooks.length)} / {individualBooks.length}권 탐험 중
             </p>
         </div>
