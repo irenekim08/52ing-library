@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type Book = {
@@ -58,30 +59,31 @@ function BookCard({ book }: { book: Book }) {
         ✦
       </div>
 
-      {/* SMALLER COVER */}
-      <div className="flex justify-center mb-3">
-        {book.cover ? (
-          <img
-            src={book.cover}
-            alt={book.title}
-            loading="lazy"
-            className="
-                w-28
-                sm:w-32
-                aspect-[2/3]
-                object-cover
-                rounded-xl
-                shadow-md
-                group-hover:rotate-1
-                transition
-            "
-            />
-        ) : (
-          <div className="w-28 sm:w-32 aspect-[2/3] flex items-center justify-center text-3xl bg-[#FFFDF8] rounded-xl">
-            📚
-          </div>
-        )}
-      </div>
+    {/* COVER */}
+    <div className="mb-3 flex h-40 items-center justify-center sm:h-44">
+    {book.cover ? (
+        <Image
+        src={book.cover}
+        alt={book.title}
+        width={500}
+        height={750}
+        sizes="(max-width: 640px) 140px, 160px"
+        className="
+            h-40
+            w-auto
+            max-w-full
+            rounded-xl
+            shadow-md
+            group-hover:rotate-1
+            transition
+        "
+        />
+    ) : (
+        <div className="flex h-40 w-28 items-center justify-center rounded-xl bg-[#FFFDF8] text-3xl sm:h-44 sm:w-32">
+        📚
+        </div>
+    )}
+    </div>
 
       <div className="text-center">
         <h3 className="font-bold text-base text-[#1F2A44] leading-tight">
@@ -446,24 +448,26 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
                   <div className="relative flex justify-center mb-3">
                     {seriesBooks[0].cover ? (
-                      <img
+                      <Image
                         src={seriesBooks[0].cover}
                         alt={seriesName}
+                        width={500}
+                        height={750}
+                        sizes="(max-width: 640px) 120px, 140px"
                         className="
-                          w-24
-                          sm:w-28
-                          aspect-[2/3]
-                          object-cover
-                          rounded-xl
-                          shadow-md
-                          group-hover:rotate-2
-                          transition
+                            h-36
+                            w-auto
+                            max-w-full
+                            rounded-xl
+                            shadow-md
+                            group-hover:rotate-2
+                            transition
                         "
-                      />
+                        />
                     ) : (
-                      <div className="w-24 sm:w-28 aspect-[2/3] flex items-center justify-center bg-white rounded-xl text-3xl">
-                        📚
-                      </div>
+                    <div className="flex h-36 w-24 items-center justify-center rounded-xl bg-white text-3xl sm:h-40 sm:w-28">
+                    📚
+                    </div>
                     )}
                   </div>
 
