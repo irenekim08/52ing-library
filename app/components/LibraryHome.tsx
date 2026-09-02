@@ -19,15 +19,46 @@ export default function LibraryHome({ books }: { books: Book[] }) {
   const [showStory, setShowStory] = useState(false);
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#73D2DF]">
-      {/* =========================
-          HERO
-      ========================= */}
+    <main className="min-h-screen overflow-x-hidden bg-[#73D2DF] font-gaegu">
+      {/* STORY BUTTON — TRAIL GRAPHIC */}
+      <button
+        onClick={() => setShowStory(true)}
+        aria-label="오잉이의 이야기 보기"
+        className="
+          absolute
+          left-0
+          top-0
+          z-30
+          cursor-pointer
+          border-0
+          bg-transparent
+          p-0
+          transition
+          duration-300
+          hover:scale-105
+          active:scale-95
+        "
+      >
+        <Image
+          src="/oing/trail-long.png"
+          alt="오잉이의 이야기"
+          width={420}
+          height={160}
+          className="
+            h-auto
+            w-[190px]
+            object-contain
+            sm:w-[260px]
+            md:w-[320px]
+          "
+          priority
+        />
+      </button>
 
-      <section className="relative px-5 pb-10 pt-10 sm:px-8 sm:pb-14 sm:pt-14">
+      {/* HERO */}
+      <section className="relative px-5 pb-10 pt-16 sm:px-8 sm:pb-14 sm:pt-20">
         <div className="mx-auto max-w-5xl text-center">
           {/* OING */}
-
           <div className="mb-4 flex justify-center sm:mb-6">
             <Image
               src="/52ing.PNG"
@@ -40,72 +71,37 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           </div>
 
           {/* TITLE */}
-
-          <h1 className="font-gaegu text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-6xl md:text-7xl">
+          <h1 className="text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-6xl md:text-7xl">
             오잉 도서관
           </h1>
 
           {/* SUBTITLE */}
-
-          <p className="mt-4 font-gaegu text-xl font-bold text-[#1F2A44] sm:text-2xl">
+          <p className="font-basic mt-4 text-xl font-bold text-[#1F2A44] sm:text-2xl">
             우리들의 운석의 새로운 궤도를 찾아서!
           </p>
 
-          <p className="mt-2 font-gaegu text-lg text-[#1F2A44]/80 sm:text-xl">
+          <p className="mt-2 text-lg text-[#1F2A44]/80 sm:text-xl">
             어린이와 청소년을 위한 한국어 책 도서관
           </p>
 
           {/* BOOK COUNT */}
-
           <div className="mt-5 inline-flex rounded-full bg-white/30 px-5 py-2 backdrop-blur-sm">
-            <p className="font-gaegu text-base font-bold text-[#1F2A44] sm:text-lg">
+            <p className="text-base font-bold text-[#1F2A44] sm:text-lg">
               지금 {books.length}권의 책이 오잉 도서관에 있어요 ☄️
             </p>
-          </div>
-
-          {/* STORY BUTTON */}
-
-          <div className="mt-7">
-            <button
-              onClick={() => setShowStory(true)}
-              className="
-                rounded-full
-                border-2 border-[#1F2A44]
-                bg-[#1F2A44]
-                px-7
-                py-3
-                font-gaegu
-                text-xl
-                font-bold
-                text-[#73D2DF]
-                shadow-md
-                transition
-                duration-200
-                hover:-translate-y-1
-                hover:shadow-lg
-                active:translate-y-0
-                sm:px-9
-                sm:text-2xl
-              "
-            >
-              ☄️ 오잉이의 이야기
-            </button>
           </div>
         </div>
       </section>
 
-      {/* =========================
-          BOOK BROWSER SECTION
-      ========================= */}
-
-      <section className="bg-[#FFFDF7] px-5 py-10 sm:px-8 sm:py-14">
+      {/* BOOK BROWSER */}
+      <section className="bg-[#73D2DF] px-5 py-10 sm:px-8 sm:py-14">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 text-center sm:mb-10">
-            <h2 className="font-gaegu text-4xl font-bold text-[#1F2A44] sm:text-5xl">
+            <h2 className="text-4xl font-bold text-[#1F2A44] sm:text-5xl">
               책 둘러보기
             </h2>
 
-            <p className="mt-2 font-gaegu text-lg text-[#1F2A44]/70 sm:text-xl">
+            <p className="mt-2 text-lg text-[#1F2A44]/70 sm:text-xl">
               오잉과 함께 새로운 이야기를 탐험해 보세요!
             </p>
           </div>
@@ -114,10 +110,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
         </div>
       </section>
 
-      {/* =========================
-          STORY MODAL
-      ========================= */}
-
+      {/* STORY MODAL */}
       {showStory && (
         <div
           className="
@@ -141,7 +134,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
               max-w-5xl
               overflow-auto
               rounded-3xl
-              bg-[#FFFDF7]
+              bg-[#73D2DF]
               p-3
               shadow-2xl
               sm:p-5
@@ -149,7 +142,6 @@ export default function LibraryHome({ books }: { books: Book[] }) {
             onClick={(event) => event.stopPropagation()}
           >
             {/* CLOSE */}
-
             <button
               onClick={() => setShowStory(false)}
               aria-label="닫기"
@@ -166,7 +158,6 @@ export default function LibraryHome({ books }: { books: Book[] }) {
                 justify-center
                 rounded-full
                 bg-[#1F2A44]
-                font-gaegu
                 text-2xl
                 font-bold
                 text-[#73D2DF]
@@ -178,11 +169,10 @@ export default function LibraryHome({ books }: { books: Book[] }) {
               ×
             </button>
 
-            {/* STORYBOARD IMAGE */}
-
+            {/* STORYBOARD */}
             <div className="flex justify-center">
               <Image
-                src="oing/oing-story.png"
+                src="/oing/oing-story.png"
                 alt="오잉이의 이야기"
                 width={1600}
                 height={2200}
