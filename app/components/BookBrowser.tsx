@@ -15,9 +15,16 @@ type Book = {
 };
 
 function BookCard({ book }: { book: Book }) {
+  const formUrl =
+    `https://docs.google.com/forms/d/e/1FAIpQLSf_4-9cNbYesUM_orOr7AL2iQzQs7zKiVg5Y2RAO_ZaaNJRKA/viewform` +
+    `?usp=pp_url` +
+    `&entry.518215280=${encodeURIComponent(
+      `책 제목: ${book.title}\n시리즈: ${book.series || "없음"}`
+    )}`;
+
   return (
     <a
-      href="https://forms.gle/ZcEpwMP627qLGeFK8"
+      href={formUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="group relative block cursor-pointer rounded-[2rem] bg-[#DDF7F8] p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
