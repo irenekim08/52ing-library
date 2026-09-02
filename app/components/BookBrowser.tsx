@@ -93,20 +93,20 @@ function BookCard({ book }: { book: Book }) {
     </div>
 
       <div className="text-center">
-        <h3 className="font-bold text-base text-[#1F2A44] leading-tight">
-          {book.title}
+        <h3 className="font-basic font-bold text-base text-[#1F2A44] leading-tight">
+            {book.title.split("|").map((part, index) => (
+            <span key={index}>
+                {index > 0 && <br />}
+                {part}
+            </span>
+            ))}
         </h3>
 
         <p className="text-gray-500 text-m mt-1">
-          {book.author}
+            {book.author}
         </p>
 
         <div className="flex justify-center flex-wrap gap-2 mt-3">
-          {book.category && (
-            <span className="bg-[#73D2DF]/40 px-3 py-1 rounded-full text-m text-[#1F2A44]/60">
-              {book.category}
-            </span>
-          )}
 
           {book.age && (
             <span className="bg-[#FCF057]/60 px-3 py-1 rounded-full text-m text-[#1F2A44]/60">
@@ -257,9 +257,9 @@ export default function BookBrowser({ books }: { books: Book[] }) {
             🪐
           </div>
 
-          <h2 className="relative text-3xl font-bold text-[#1F2A44]">
+          <h2 className="font-basic relative text-3xl font-bold text-[#1F2A44]">
             {selectedSeries}
-          </h2>
+            </h2>
 
           <p className="relative text-[#1F2A44]/70 mt-2">
             오잉이 발견한 이야기 {selectedBooks.length}권 ☄️
@@ -313,8 +313,8 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🔭 SEARCH */}
         <div>
-        <label className="text-l font-bold text-[#1F2A44]">
-            🔭 책 검색
+        <label className="font-basic text-l font-bold text-[#1F2A44]">
+        🔭 책 검색
         </label>
 
         <input
@@ -339,7 +339,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🪐 CATEGORY */}
         <div>
-        <label className="text-l font-bold text-[#1F2A44]">
+        <label className="font-basic text-l font-bold text-[#1F2A44]">
             🪐 카테고리
         </label>
 
@@ -369,7 +369,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
 
         {/* 🌙 AGE */}
         <div>
-        <label className="text-l font-bold text-[#1F2A44]">
+        <label className="font-basic text-l font-bold text-[#1F2A44]">
             🌙 추천 연령
         </label>
 
@@ -481,9 +481,9 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     )}
                   </div>
 
-                  <h3 className="relative text-base font-bold text-[#1F2A44] text-center leading-tight">
+                  <h3 className="font-basic relative text-base font-bold text-[#1F2A44] text-center leading-tight">
                     {seriesName}
-                  </h3>
+                    </h3>
 
                   <p className="relative mt-2 text-[#1F2A44]/60 text-l text-center">
                     {seriesBooks.length}권의 이야기
