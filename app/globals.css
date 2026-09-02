@@ -6,10 +6,6 @@
   --font-gaegu: "Gaegu", cursive;
 }
 
-@theme inline {
-  --font-gaegu: var(--font-gaegu);
-}
-
 :root {
   --background: #111a2e;
   --foreground: #ffffff;
