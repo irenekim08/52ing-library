@@ -55,45 +55,50 @@ export default function LibraryHome({ books }: { books: Book[] }) {
         />
       </button>
 
-      {/* HERO */}
-      <section className="relative px-5 pb-10 pt-16 sm:px-8 sm:pb-14 sm:pt-20">
-        <div className="mx-auto max-w-5xl text-center">
-          {/* OING */}
-          <div className="mb-4 flex justify-center sm:mb-6">
-            <Image
-              src="/52ing.PNG"
-              alt="운석 오잉이"
-              width={130}
-              height={130}
-              className="h-auto w-[105px] object-contain sm:w-[130px]"
-              priority
-            />
-          </div>
+        {/* HERO */}
+        <section className="relative px-5 pb-10 pt-16 sm:px-8 sm:pb-14 sm:pt-20">
+            <div className="mx-auto max-w-5xl text-center">
+            {/* OING */}
+            <div className="mb-4 flex justify-center sm:mb-6">
+                <Image
+                src="/52ing.PNG"
+                alt="운석 오잉이"
+                width={130}
+                height={130}
+                className="h-auto w-[105px] object-contain sm:w-[130px]"
+                priority
+                />
+            </div>
 
-          {/* TITLE */}
-          <h1 className="text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-6xl md:text-7xl">
-            오잉 도서관
-          </h1>
+            {/* TITLE */}
+            <h1 className="text-5xl font-bold tracking-tight text-[#1F2A44] sm:text-6xl md:text-7xl">
+                오잉 도서관
+            </h1>
 
-          {/* SUBTITLE */}
-          <p className="font-basic mt-4 text-l text-[#1F2A44] sm:text-xl">
-            우리들의 운석의 새로운 궤도를 찾아서!
-          </p>
-
-          <p className="mt-2 text-lg text-[#1F2A44]/80 sm:text-xl">
-            어린이와 청소년을 위한 한국어 책 도서관
-          </p>
-
-          {/* BOOK COUNT */}
-          <div className="mt-5 inline-flex rounded-full bg-white/30 px-5 py-2 backdrop-blur-sm">
-            <p className="text-base font-bold text-[#1F2A44] sm:text-lg">
-              지금 {books.length}권의 책이 오잉 도서관에 있어요 ☄️
+            {/* SUBTITLE */}
+            <p className="font-basic mt-4 text-l text-[#1F2A44] sm:text-xl">
+                우리들의 운석의 새로운 궤도를 찾아서!
             </p>
-          </div>
-        </div>
-      </section>
 
-      {/* BOOK BROWSER */}
+            <p className="mt-2 text-lg text-[#1F2A44]/80 sm:text-xl">
+                어린이와 청소년을 위한 한국어 책 도서관
+            </p>
+
+            {/* BOOK COUNT */}
+            <div className="mt-5 inline-flex rounded-full bg-white/30 px-5 py-2 backdrop-blur-sm">
+                <p className="text-base font-bold text-[#1F2A44] sm:text-lg">
+                지금 {books.length}권의 책이 오잉 도서관에 있어요 ☄️
+                </p>
+            </div>
+            </div>
+        </section>
+
+        {/* DIVIDER */}
+        <div className="flex items-center justify-center px-5">
+            <div className="h-[2px] w-full max-w-5xl bg-[#FCF057]/70" />
+        </div>
+
+        {/* BOOK BROWSER */}
       <section className="bg-[#73D2DF] px-5 py-10 sm:px-8 sm:py-14">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 text-center sm:mb-10">
