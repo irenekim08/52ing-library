@@ -76,7 +76,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           </h1>
 
           {/* SUBTITLE */}
-          <p className="font-basic mt-4 text-xl font-bold text-[#1F2A44] sm:text-2xl">
+          <p className="font-basic mt-4 text-l text-[#1F2A44] sm:text-xl">
             우리들의 운석의 새로운 궤도를 찾아서!
           </p>
 
