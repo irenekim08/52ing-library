@@ -477,3 +477,11 @@ button {
   }
 
 }
+
+/* =====================================================
+   BASIC FONT
+===================================================== */
+
+.font-basic {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
