@@ -16,7 +16,9 @@ async function getBooks() {
   const response = await fetch(
     process.env.NEXT_PUBLIC_BOOKS_CSV_URL!,
     {
-      cache: "no-store",
+      next: {
+        revalidate: 3600,
+      },
     }
   );
 
