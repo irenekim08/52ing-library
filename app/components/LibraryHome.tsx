@@ -48,7 +48,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           "
         >
           <Image
-            src="/intro/book-open-yellow.png"
+            src="/intro/book-open-mint.png"
             alt="오잉이의 이야기"
             width={100}
             height={40}
