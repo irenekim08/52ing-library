@@ -23,9 +23,9 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
       {/* =====================================================
           UPPER SECTION
-          EXACT COLOR: #48CEDB
+          EXACT COLOR: #73D2DF
       ====================================================== */}
-      <div className="relative bg-[#48CEDB]">
+      <div className="relative bg-[#73D2DF]">
 
         {/* STORY BUTTON */}
         <button
@@ -114,9 +114,9 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
       {/* =====================================================
           LOWER / BOOK SECTION
-          COLOR: #73D2DF
+          COLOR: #a0d7de
       ====================================================== */}
-      <section className="bg-[#73D2DF] px-5 py-10 sm:px-8 sm:py-14">
+      <section className="bg-[#a0d7de] px-5 py-10 sm:px-8 sm:py-14">
 
         <div className="mx-auto max-w-7xl">
 
