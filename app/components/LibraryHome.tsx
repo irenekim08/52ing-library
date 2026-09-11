@@ -88,7 +88,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
               우리들의 새로운 궤도를 찾아서!
             </p>
 
-            <p className="font-basic mt-2 text-lg text-[#1F2A44]/80 sm:text-xl">
+            <p className="font-basic mt-2 text-lg text-[#1F2A44]/80 sm:text-lg">
               어린이와 청소년을 위한 한국어 책 도서관
             </p>
 
