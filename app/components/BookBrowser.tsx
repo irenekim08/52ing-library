@@ -249,7 +249,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
           ← 시리즈로 돌아가기
         </button>
 
-        <div className="relative overflow-hidden bg-[#73D2DF]/30 rounded-[2rem] p-8 mb-10">
+        <div className="relative overflow-hidden bg-[#73D2DF]/60 rounded-[2rem] p-8 mb-10">
           {/* orbit */}
           <div className="absolute -right-20 -top-20 w-64 h-64 border-[3px] border-[#73D2DF]/40 rounded-full" />
 
@@ -454,7 +454,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                   "
                 >
                   {/* decorative orbit */}
-                  <div className="absolute -right-10 -top-10 w-28 h-28 border-2 border-[#73D2DF]/50 rounded-full text-[#247F8B]" />
+                  <div className="absolute -right-10 -top-10 w-28 h-28 border-2 border-[#73D2DF]/20 rounded-full text-[#247F8B]" />
 
                   <div className="relative flex justify-center mb-3">
                     {seriesBooks[0].cover ? (
