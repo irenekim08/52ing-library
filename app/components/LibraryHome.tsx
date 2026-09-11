@@ -34,8 +34,8 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           aria-label="오잉이의 이야기 보기"
           className="
             absolute
-            left-0
-            top-0
+            left-10
+            top-10
             z-30
             cursor-pointer
             border-0
@@ -48,7 +48,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           "
         >
           <Image
-            src="/intro/trail-long.png"
+            src="/intro/book-yellow.png"
             alt="오잉이의 이야기"
             width={420}
             height={160}
