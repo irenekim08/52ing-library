@@ -84,7 +84,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
             </h1>
 
             {/* SUBTITLE */}
-            <p className="mt-4 text-l text-[#1F2A44] sm:text-m">
+            <p className="mt-4 text-l text-[#1F2A44] sm:text-lg">
               우리들의 새로운 궤도를 찾아서!
             </p>
 
