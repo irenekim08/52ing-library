@@ -299,7 +299,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
         </div>
 
         <div>
-        <h2 className="font-bold text-xl text-[#1F2A44]">
+        <h2 className="font-basic font-bold text-xl text-[#1F2A44]">
             오잉 탐색 조종석
         </h2>
 
@@ -418,9 +418,9 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       {Object.keys(seriesGroups).length > 0 && (
           <div id="series-explorer">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-[#73D2DF]" />
+            <div className="h-[2px] w-10 bg-[#FCF057]" />
 
-            <h2 className="text-2xl font-bold text-[#1F2A44]">
+            <h2 className="font-basic text-2xl font-bold text-[#1F2A44]">
               시리즈 탐험하기
             </h2>
 
@@ -428,7 +428,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
           </div>
 
           <p className="text-gray-500 mb-6">
-            같은 우주에서 온 책들을 모아봤어요.
+            같은 우주에서 온 책들을 모았어요
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 mb-16">
@@ -482,7 +482,12 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                   </div>
 
                   <h3 className="font-basic relative text-base font-bold text-[#1F2A44] text-center leading-tight">
-                    {seriesName}
+                    {seriesName.split("|").map((part, index) => (
+                        <span key={index}>
+                        {index > 0 && <br />}
+                        {part}
+                        </span>
+                    ))}
                     </h3>
 
                   <p className="relative mt-2 text-[#1F2A44]/60 text-l text-center">
@@ -504,18 +509,14 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       {/* INDIVIDUAL BOOKS */}
 
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-[2px] bg-[#FCF057] text-[#247F8B]" />
+        <div className="w-10 h-[2px] bg-[#FCF057]" />
 
-        <h2 className="text-2xl font-bold text-[#1F2A44]">
-          책 탐험하기
+        <h2 className="font-basic text-2xl font-bold text-[#1F2A44]">
+          단편 책 탐험하기
         </h2>
 
         <span className="text-xl">🌙</span>
       </div>
-
-      <p className="text-gray-500 mb-6">
-        오잉의 우주를 자유롭게 돌아다녀 보세요.
-      </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5 text-[#1F2A44]/60">
         {individualBooks.slice(0, visibleBooks).map((book) => (
