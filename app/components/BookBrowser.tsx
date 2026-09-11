@@ -418,7 +418,7 @@ export default function BookBrowser({ books }: { books: Book[] }) {
       {Object.keys(seriesGroups).length > 0 && (
           <div id="series-explorer">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-[2px] w-10" />
+            <div className="w-10 h-[2px] bg-[#FCF057]" />
 
             <h2 className="font-basic text-2xl font-bold text-[#1F2A44]">
               시리즈 탐험하기
