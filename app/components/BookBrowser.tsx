@@ -443,8 +443,9 @@ export default function BookBrowser({ books }: { books: Book[] }) {
                     text-left
                     text-[#1F2A44]/60
                     rounded-[2rem]
+                    bg-[#DDF7F8]
                     p-4
-                    hover:bg-[#73D2DF]/40
+                    hover:bg-[#C9F0F2]
                     hover:-translate-y-1
                     transition-all
                     shadow-sm
