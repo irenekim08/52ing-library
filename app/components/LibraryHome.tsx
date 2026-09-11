@@ -23,9 +23,9 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
       {/* =====================================================
           UPPER SECTION
-          EXACT COLOR: #73D2DF
+          EXACT COLOR: #63d1e0
       ====================================================== */}
-      <div className="relative bg-[#73D2DF]">
+      <div className="relative bg-[#63d1e0]">
 
         {/* STORY BUTTON */}
         <button
@@ -36,7 +36,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
             absolute
             left-5
             top-0
-            z-30
+            z-20
             cursor-pointer
             border-0
             bg-transparent
@@ -50,11 +50,11 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           <Image
             src="/intro/book-open-yellow.png"
             alt="오잉이의 이야기"
-            width={420}
-            height={160}
+            width={100}
+            height={40}
             className="
               h-auto
-              w-[50px]
+              w-[100px]
               object-contain
               sm:w-[260px]
               md:w-[320px]
@@ -114,7 +114,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
       {/* =====================================================
           LOWER / BOOK SECTION
-          COLOR: #fcf47e
+          COLOR: #a2e2eb
       ====================================================== */}
       <section className="bg-[#fcf47e] px-5 py-10 sm:px-8 sm:py-14">
 
