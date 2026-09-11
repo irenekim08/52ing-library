@@ -34,8 +34,8 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           aria-label="오잉이의 이야기 보기"
           className="
             absolute
-            left-10
-            top-10
+            left-5
+            top-0
             z-30
             cursor-pointer
             border-0
@@ -48,13 +48,13 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           "
         >
           <Image
-            src="/intro/book-yellow.png"
+            src="/intro/book-open-yellow.png"
             alt="오잉이의 이야기"
             width={420}
             height={160}
             className="
               h-auto
-              w-[190px]
+              w-[50px]
               object-contain
               sm:w-[260px]
               md:w-[320px]
@@ -114,9 +114,9 @@ export default function LibraryHome({ books }: { books: Book[] }) {
 
       {/* =====================================================
           LOWER / BOOK SECTION
-          COLOR: #a0d7de
+          COLOR: #fcf47e
       ====================================================== */}
-      <section className="bg-[#a0d7de] px-5 py-10 sm:px-8 sm:py-14">
+      <section className="bg-[#fcf47e] px-5 py-10 sm:px-8 sm:py-14">
 
         <div className="mx-auto max-w-7xl">
 
