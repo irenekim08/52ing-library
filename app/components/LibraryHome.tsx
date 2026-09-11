@@ -54,10 +54,10 @@ export default function LibraryHome({ books }: { books: Book[] }) {
             height={40}
             className="
               h-auto
-              w-[100px]
+              w-[50px]
               object-contain
-              sm:w-[260px]
-              md:w-[320px]
+              sm:w-[60px]
+              md:w-[100px]
             "
           />
         </button>
@@ -116,7 +116,7 @@ export default function LibraryHome({ books }: { books: Book[] }) {
           LOWER / BOOK SECTION
           COLOR: #a2e2eb
       ====================================================== */}
-      <section className="bg-[#fcf47e] px-5 py-10 sm:px-8 sm:py-14">
+      <section className="bg-[#a2e2eb] px-5 py-10 sm:px-8 sm:py-14">
 
         <div className="mx-auto max-w-7xl">
 
